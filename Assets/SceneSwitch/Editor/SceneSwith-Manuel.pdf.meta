@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0e12e88ec50848059abfe900c8b7f00
+timeCreated: 1536554762
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 128024
+  packageName: SceneSwitch
+  packageVersion: 1.04
+  assetPath: Assets/SceneSwitch/Editor/SceneSwith-Manuel.pdf
+  uploadId: 266057
