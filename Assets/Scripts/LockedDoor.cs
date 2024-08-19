@@ -16,6 +16,8 @@ public class LockedDoor : InteractBase, Interacter
 
     public Collider[] col;
     public float doorOpeningTime = .5f;
+    public float doorOpeningAngle = -70;
+    public float doorClosingAngle = 0;
 
     private void Start()
     {
@@ -49,7 +51,7 @@ public class LockedDoor : InteractBase, Interacter
 
     public void OpenTheDoor()
     {
-        LeanTween.rotateY(gameObject, -70, doorOpeningTime).setEaseInCirc().setOnComplete(() => {
+        LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc().setOnComplete(() => {
             gameObject.layer = 0;
         });
     }
