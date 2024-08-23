@@ -71,9 +71,9 @@ namespace HorroHouse.Player
                     if (!this.interactBase)
                     {
                         this.interactBase = interactBase;
-                        interactBase._Heighlight.SetActive(true);
+                        if(interactBase._Heighlight) interactBase._Heighlight.SetActive(true);
                         UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
-                        LeanTween.value(0, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+                        LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
                     }                                       
                 }
                 else 
@@ -95,10 +95,10 @@ namespace HorroHouse.Player
 
         public void NonInteractionCode()
         {            
-            interactBase._Heighlight.SetActive(false);
+            if(interactBase._Heighlight) interactBase._Heighlight.SetActive(false);
             interactBase = null;
             UIManager.Instance._interactionUI._UIText.text = "";
-            LeanTween.value(1, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+            LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
         }
 
         private void OnTriggerEnter(Collider other)

@@ -22,6 +22,7 @@ public class LockedDoor : InteractBase, Interacter
     private void Start()
     {
         _player = GameManager.Instance._PlayerObject;
+        if(isLocked)_UIText = "Door Locked";
     }
     public void Interact()
     {
@@ -33,14 +34,12 @@ public class LockedDoor : InteractBase, Interacter
                 obj.parent = _requirementPositions;
                 obj.localPosition = Vector3.zero;
                 obj.localRotation = Quaternion.identity;
+                foreach (Collider coll in col)
+                {
+                    coll.enabled = false;
+                }
                 LeanTween.delayedCall(1, () => { OpenTheDoor(); });
-                
 
-
-            }
-            else
-            {
-                _UIText = "Require the key";
             }
         }
     }
@@ -53,6 +52,7 @@ public class LockedDoor : InteractBase, Interacter
     {
         LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc().setOnComplete(() => {
             gameObject.layer = 0;
+            isLocked = false;   
         });
     }
 }

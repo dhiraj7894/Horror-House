@@ -6,15 +6,22 @@ using UnityEngine;
 public class DoorScript : InteractBase, Interacter
 {
     public Transform interactableUI;
+
     public bool isPlayerNear = false;
 
     public float time = .1f;
     public float doorOpeningTime = .5f;
+    public float doorOpeningAngle = 45;
 
+    [SerializeField]private float initialDoorAngle;
+
+    [SerializeField] float currentEA;
     private void Start()
     {
         // Interact();
         EventManager.Instance.PressFButton += PressFButton;
+        _UIText = "Open Door";
+        //initialDoorAngle = transform.eulerAngles.y;
     }
 
     private void PressFButton()
@@ -31,18 +38,22 @@ public class DoorScript : InteractBase, Interacter
             _UIText = "Close Door";
         else _UIText = "Open Door";
 
-        if (transform.eulerAngles.y == 90)
+        if (_UIText.Contains("Close Door"))
         {
-            LeanTween.rotateY(gameObject, 150, doorOpeningTime).setEaseInCirc();
+            LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc();
             Debug.Log("OpenDoor");
         }
-        else if(transform.eulerAngles.y == 150)
+        else if(_UIText.Contains("Open Door"))
         {
-            LeanTween.rotateY(gameObject, 90, doorOpeningTime).setEaseInCirc();
+            LeanTween.rotateY(gameObject, initialDoorAngle, doorOpeningTime).setEaseInCirc();
             Debug.Log("OpenDoor");
         }
     }
 
+    private void Update()
+    {
+        currentEA = transform.localEulerAngles.y;
+    }
 
 
     private void OnTriggerEnter(Collider other)
