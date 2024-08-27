@@ -21,7 +21,9 @@ namespace HorroHouse.Player
         public CharacterController controller;
         public Animator anim;
         public Transform cameraTransform;
+        public Transform playerGFXTransform;
         public Rigidbody rb;
+        
 
         [Space(10)]
         public float mouseSensitivity = 1f;

@@ -21,13 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stair
-  m_Shader: {fileID: -6465566751694194690, guid: 25096cc823012c14e846190de786a755,
+  m_Shader: {fileID: -6465566751694194690, guid: 2ff75c975723c704e9d261347ba4a33d,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _DISABLE_SSR_TRANSPARENT
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,6 +111,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 0.4, y: 0.4}
         m_Offset: {x: 0, y: 0}
+    - _Front_AO:
+        m_Texture: {fileID: 2800000, guid: 80b4d0d4d5674f64e8c1d6f87b9fb9e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Front_Normal:
+        m_Texture: {fileID: 2800000, guid: fd0451e8518b0604ab8c5795f33cf0f3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Front_Texture:
+        m_Texture: {fileID: 2800000, guid: 6292962ec947bce428eb744823722992, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _HeightMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -160,6 +171,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: a644ef5304318b248a8bd6b592ff4b60, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Side_AO:
+        m_Texture: {fileID: 2800000, guid: 7b637b00a9cf82742b0380888cf52a10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Side_Normal:
+        m_Texture: {fileID: 2800000, guid: 6be1e454433d2c445a871fe2fe044f94, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Side_Texture:
+        m_Texture: {fileID: 2800000, guid: 60c7f62003ab5a04dad8164cb64bfb08, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -178,6 +201,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Top_AO:
+        m_Texture: {fileID: 2800000, guid: 7b637b00a9cf82742b0380888cf52a10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Top_Normal:
+        m_Texture: {fileID: 2800000, guid: 6be1e454433d2c445a871fe2fe044f94, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Top_Texture:
+        m_Texture: {fileID: 2800000, guid: 60c7f62003ab5a04dad8164cb64bfb08, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransmittanceColorMap:
@@ -249,6 +284,8 @@ Material:
     - _AlphaToMaskInspectorValue: 0
     - _Anisotropy: 0
     - _BlendMode: 0
+    - _Blend_Sharpness: 5
+    - _Blend_Top: 0
     - _BumpScale: 1
     - _CoatMask: 0
     - _CullMode: 2
@@ -306,6 +343,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
+    - _Matallic: 0.19
     - _MaterialID: 1
     - _Metallic: 0
     - _Mode: 0
@@ -328,7 +366,7 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessRemapMax: 0.5
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
@@ -393,10 +431,19 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0.25471696, g: 0.25471696, b: 0.25471696, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
+    - _Front_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+    - _Front_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Front_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Side_Color: {r: 1, g: 0.9636663, b: 0.9009434, a: 1}
+    - _Side_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Side_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Top_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+    - _Top_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Top_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}

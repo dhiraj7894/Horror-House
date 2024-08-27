@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 5327527667915137930}
   - component: {fileID: 1107174774383030093}
   - component: {fileID: 5132910829490831646}
-  - component: {fileID: 477607872937267079}
+  - component: {fileID: 6428012460506185240}
+  - component: {fileID: 6708566284155473779}
   m_Layer: 0
   m_Name: kitchenIsland_drawer5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5327527667915137930
 Transform:
@@ -29,6 +30,7 @@ Transform:
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
   m_LocalPosition: {x: 0.826192, y: 0.45993987, z: 1.4925}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 5
@@ -84,19 +86,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &477607872937267079
-BoxCollider:
+--- !u!64 &6428012460506185240
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348653991994485321}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.28731373, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &6708566284155473779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348653991994485321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []
 --- !u!1 &2292008911663445048
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,13 +137,14 @@ GameObject:
   - component: {fileID: 6833559232188409087}
   - component: {fileID: 6813670565972675388}
   - component: {fileID: 4035866887080912693}
-  - component: {fileID: 1068742039413163561}
+  - component: {fileID: 1292303301614576282}
+  - component: {fileID: 1418270816201319578}
   m_Layer: 0
   m_Name: kitchenIsland_drawer6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6833559232188409087
 Transform:
@@ -124,8 +154,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292008911663445048}
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
-  m_LocalPosition: {x: 1.1847259, y: 0.45993987, z: 2.3160057}
+  m_LocalPosition: {x: 0.826192, y: 0.45993987, z: 2.316007}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 6
@@ -181,19 +212,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1068742039413163561
-BoxCollider:
+--- !u!64 &1292303301614576282
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292008911663445048}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.28731367, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &1418270816201319578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292008911663445048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []
 --- !u!1 &2546333473162806819
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,13 +263,14 @@ GameObject:
   - component: {fileID: 7237786508135165001}
   - component: {fileID: 6653270769794763237}
   - component: {fileID: 5796543596154298892}
-  - component: {fileID: 3623293383438482105}
+  - component: {fileID: 3608783258833580634}
+  - component: {fileID: 7995416561525443936}
   m_Layer: 0
   m_Name: kitchenIsland_drawer4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7237786508135165001
 Transform:
@@ -221,8 +280,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2546333473162806819}
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
-  m_LocalPosition: {x: 0.81181824, y: 1.0364112, z: 2.3160057}
+  m_LocalPosition: {x: 0.826192, y: 1.0364112, z: 2.3160057}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 4
@@ -278,19 +338,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3623293383438482105
-BoxCollider:
+--- !u!64 &3608783258833580634
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2546333473162806819}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.28731367, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &7995416561525443936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546333473162806819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []
 --- !u!1 &3557654067395680959
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,11 +403,12 @@ Transform:
   m_GameObject: {fileID: 3557654067395680959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 192440420077741392}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3578105358348402000
 GameObject:
@@ -333,7 +421,7 @@ GameObject:
   - component: {fileID: 2513681755190463841}
   - component: {fileID: 3685709938270870174}
   - component: {fileID: 6093716828886648771}
-  - component: {fileID: 6527565021137350174}
+  - component: {fileID: 524514329014395791}
   m_Layer: 0
   m_Name: kitchenIsland_body
   m_TagString: Untagged
@@ -351,6 +439,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0000048828124, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 0
@@ -406,19 +495,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6527565021137350174
-BoxCollider:
+--- !u!64 &524514329014395791
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3578105358348402000}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7149005, y: 1.9970939, z: 4.396986}
-  m_Center: {x: 0.15757889, y: 0.9970583, z: 0.5737956}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1689093084067173104, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
 --- !u!1 &4891392322357947835
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,13 +528,14 @@ GameObject:
   - component: {fileID: 7121485726306205475}
   - component: {fileID: 3374687421844248415}
   - component: {fileID: 1905981132947538390}
-  - component: {fileID: 7680432088705786219}
+  - component: {fileID: 8845016948916741225}
+  - component: {fileID: 7250306210738260242}
   m_Layer: 0
   m_Name: kitchenIsland_drawer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7121485726306205475
 Transform:
@@ -446,8 +545,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4891392322357947835}
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
-  m_LocalPosition: {x: 0.826192, y: 1.6128831, z: 1.4925097}
+  m_LocalPosition: {x: 0.826192, y: 1.6128831, z: 1.493}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 1
@@ -503,19 +603,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7680432088705786219
-BoxCollider:
+--- !u!64 &8845016948916741225
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4891392322357947835}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.28731367, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &7250306210738260242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891392322357947835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []
 --- !u!1 &5126474726460209678
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,13 +654,14 @@ GameObject:
   - component: {fileID: 7141584326549208985}
   - component: {fileID: 4637670555999788968}
   - component: {fileID: 5150481974091488932}
-  - component: {fileID: 7723173597014607808}
+  - component: {fileID: 5078800945944458035}
+  - component: {fileID: 5987934089259343163}
   m_Layer: 0
   m_Name: kitchenIsland_drawer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7141584326549208985
 Transform:
@@ -543,8 +671,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5126474726460209678}
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
-  m_LocalPosition: {x: 1.1970959, y: 1.0364112, z: 1.4925}
+  m_LocalPosition: {x: 0.826192, y: 1.0364112, z: 1.4925011}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 3
@@ -600,19 +729,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7723173597014607808
-BoxCollider:
+--- !u!64 &5078800945944458035
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5126474726460209678}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.2873136, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &5987934089259343163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126474726460209678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []
 --- !u!1 &5860616834995881910
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +795,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2513681755190463841}
   - {fileID: 7121485726306205475}
@@ -647,8 +804,40 @@ Transform:
   - {fileID: 7237786508135165001}
   - {fileID: 5327527667915137930}
   - {fileID: 6833559232188409087}
+  - {fileID: 7444678655773538511}
   m_Father: {fileID: 4185114174212767749}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7639253835285148363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7444678655773538511}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7444678655773538511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639253835285148363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 192440420077741392}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9104538023853686427
 GameObject:
@@ -661,13 +850,14 @@ GameObject:
   - component: {fileID: 4058670507384640287}
   - component: {fileID: 4838164448142598713}
   - component: {fileID: 8303865222193744543}
-  - component: {fileID: 3325653535313599297}
+  - component: {fileID: 4604747945572482277}
+  - component: {fileID: 2170400883812535954}
   m_Layer: 0
   m_Name: kitchenIsland_drawer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4058670507384640287
 Transform:
@@ -677,8 +867,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9104538023853686427}
   m_LocalRotation: {x: -0.00000008145725, y: 0.9999619, z: -7.1087225e-10, w: 0.008726442}
-  m_LocalPosition: {x: 0.81181824, y: 1.6128831, z: 2.3160057}
+  m_LocalPosition: {x: 0.826192, y: 1.6128831, z: 2.3160057}
   m_LocalScale: {x: 1.2939415, y: 1.2939416, z: 1.2939415}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192440420077741392}
   m_RootOrder: 2
@@ -734,16 +925,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3325653535313599297
-BoxCollider:
+--- !u!64 &4604747945572482277
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9104538023853686427}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.574627, y: 0.43585902, z: 0.62487555}
-  m_Center: {x: -0.28731367, y: 0.0009047687, z: 0.00000068545336}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6643394183232773, guid: d1a0377cf789263439d9ae63236a7c6e, type: 3}
+--- !u!114 &2170400883812535954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104538023853686427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae60312edafc0640944aaf85138bfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 7639253835285148363}
+  _UIText: 
+  openPosition: 1.367
+  closePosition: 0.826192
+  time: 0.1
+  col: []

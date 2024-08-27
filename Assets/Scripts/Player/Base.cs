@@ -12,6 +12,7 @@ namespace HorroHouse.Player
 
         protected bool _isIdle = false;
         protected bool _isSprint = false;
+        protected bool _isCrouch = false;
         protected bool _isDash = false;
 
         public bool _isDead = false;
@@ -46,7 +47,7 @@ namespace HorroHouse.Player
             if (!_isDead)
             {
                 moveDir = player.transform.right * _input.x + player.transform.forward * _input.y;
-                player.controller.Move(moveDir * player.playerSpeed * speed * Time.deltaTime);
+                player.controller.Move(moveDir * _playerSpeed * speed * Time.deltaTime);
             }
         }
 
@@ -58,7 +59,7 @@ namespace HorroHouse.Player
             float mouseY = mouse.y * player.mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -50, 30);
+            xRotation = Mathf.Clamp(xRotation, -50, 50);
 
 
             player.cameraTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);
@@ -76,6 +77,27 @@ namespace HorroHouse.Player
             }
 
             player.controller.Move(_velocity * Time.deltaTime);
+        }
+        public void crouchMovement(bool isTrue)
+        {
+            // Set controller center height and player graphic position
+
+            if (isTrue)
+            {
+                player.controller.center = new Vector3(0, 0.3f, 0);
+                player.controller.height = .7f;
+                player.playerGFXTransform.localPosition = new Vector3(0, -0.636f, 0);
+                _playerSpeed = player.playerSpeed / (1.3f);
+            }
+            else
+            {
+                player.controller.center = new Vector3(0, 0.85f, 0);
+                player.controller.height = 1.7f;
+                player.playerGFXTransform.localPosition = new Vector3(0, 0, 0);
+                _playerSpeed = player.playerSpeed * (1.3f);
+            }
+            
+
         }
     }
 

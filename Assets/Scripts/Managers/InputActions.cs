@@ -9,6 +9,7 @@ public class InputActions : MonoBehaviour
     public static InputAction _mouseAction;
     public static InputAction _dashAction;
     public static InputAction _jumpAction;
+    public static InputAction _crouchAction;
 
 
     public static InputAction _attack;
@@ -33,6 +34,7 @@ public class InputActions : MonoBehaviour
         _mouseAction = playerInput.actions["Mouse"];
         _jumpAction = playerInput.actions["Jump"];
         _dashAction = playerInput.actions["Dash"];
+        _crouchAction = playerInput.actions["Crouch"];
 
         _attack = playerInput.actions["Attack"];
         _heavyAttack = playerInput.actions["HeavyAttack"];

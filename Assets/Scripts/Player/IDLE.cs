@@ -18,6 +18,7 @@ namespace HorroHouse.Player
             base.EnterState();
             _input = Vector2.zero;
             _isSprint = false;
+            _isCrouch = false;
         }
 
         public override void ExitState()
@@ -44,12 +45,14 @@ namespace HorroHouse.Player
             {
                 //player.anim.SetFloat(AnimHash.SPEED, 0, player.playerSpeedDamp, Time.deltaTime);
             }
+            crouchMovement(InputActions._crouchAction.IsPressed());
         }
 
         public override void ManageInput()
         {
             base.ManageInput();
             _input = InputActions._moveAction.ReadValue<Vector2>();
+
         }
     }
 }
