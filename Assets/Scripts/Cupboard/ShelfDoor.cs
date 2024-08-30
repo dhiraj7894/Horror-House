@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ShelfDoor : InteractBase, Interacter
 {
-    public float openRotation;
-    public float closeRotation;
+    //[SerializeField]private float GCurrentRotation;
+    [SerializeField]private float LCurrentRotation;
+
+    [Space(10)]
+    public Vector3 openRotation;
+    public Vector3 closeRotation;
 
     public float time = 1;
     public Collider[] col;
@@ -16,13 +20,13 @@ public class ShelfDoor : InteractBase, Interacter
     public void Interact()
     {
         UITextUpdate();
-        if (transform.localEulerAngles.y == closeRotation)
+        if (_UIText.Contains("Close"))
         {
-            LeanTween.rotateY(transform.gameObject, openRotation, time);
+            LeanTween.rotateLocal(gameObject, closeRotation, time).setEaseInCirc();
         }
-        else
+        else if (_UIText.Contains("Open"))
         {
-            LeanTween.rotateY(transform.gameObject, closeRotation, time);
+            LeanTween.rotateLocal(gameObject, openRotation, time).setEaseInCirc();
         }
     }
 
@@ -38,4 +42,17 @@ public class ShelfDoor : InteractBase, Interacter
         else
             _UIText = "Open";
     }
+
+    [ContextMenu("Update Rotation")]
+    void checkRotation()
+    {
+        //GCurrentRotation = transform.eulerAngles.y;
+        LCurrentRotation = transform.localEulerAngles.y;
+    }
+
+    private void Update()
+    {
+        checkRotation();
+    }
+
 }

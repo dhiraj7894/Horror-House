@@ -8,7 +8,6 @@ using static UnityEditor.Progress;
 public class LockedDoor : InteractBase, Interacter
 {
     [Space(10)]
-    public bool isLocked = true;
     public MainPlayer _player;
 
     public Item _requirements;
@@ -22,7 +21,7 @@ public class LockedDoor : InteractBase, Interacter
     private void Start()
     {
         _player = GameManager.Instance._PlayerObject;
-        if(isLocked)_UIText = "Door Locked";
+        if(isLocked)_UIText = _LockedText;
     }
     public void Interact()
     {

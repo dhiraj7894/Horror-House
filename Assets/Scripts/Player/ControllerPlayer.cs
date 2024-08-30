@@ -6,6 +6,7 @@ namespace HorroHouse.Player
 {
     public class ControllerPlayer : MonoBehaviour
     {
+        
         public LayerMask interactableLayer;
         [Space(10)]
         public Item itemData;
@@ -55,8 +56,8 @@ namespace HorroHouse.Player
                 if(hit.transform.TryGetComponent<Interacter>(out Interacter inT))
                 {
                     inT.Interact();
-                    UIManager.Instance._interactionUI._UIText.text = "";
-                    LeanTween.value(1, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+                    //UIManager.Instance._interactionUI._UIText.text = "";
+                    //LeanTween.value(1, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
                 }
             }
         }

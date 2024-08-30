@@ -120,6 +120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: drawer3_body
       objectReference: {fileID: 0}
+    - target: {fileID: -7735625376493144054, guid: f4b29631ed61bab40ae105049cd8c514,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -7338961655973598327, guid: f4b29631ed61bab40ae105049cd8c514,
         type: 3}
       propertyPath: m_Name
@@ -297,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 3781125067265641088, guid: c7f4c53a37f953b47a81d721b66f3782,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3781125067265641088, guid: c7f4c53a37f953b47a81d721b66f3782,
         type: 3}

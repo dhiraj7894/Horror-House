@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Cupboard : InteractBase, Interacter
 {
+    public bool isHideable = true;
     public Transform hidePosition;
     public Transform exitPosition;
     public Animator anim;
@@ -22,6 +23,18 @@ public class Cupboard : InteractBase, Interacter
     }
     public void Interact()
     {
+        if (isHideable)
+        {
+            HideInCupboard();
+        }
+        else
+        {
+            OpenCloseCupboard();
+        }
+    }
+
+    public void HideInCupboard()
+    {
         UITextUpdate();
         anim.Play("Open");
         if (_Player.transform.parent != hidePosition)
@@ -31,9 +44,9 @@ public class Cupboard : InteractBase, Interacter
                 c.enabled = false;
             }
             _Player.transform.parent = hidePosition;
-            LeanTween.moveLocal(_Player.gameObject, new Vector3(0, 0, 0), time).setOnComplete(() =>{
-                LeanTween.rotateLocal(_Player.gameObject, playerRotationDiretion, time/2);
-                foreach(Collider c in col)
+            LeanTween.moveLocal(_Player.gameObject, new Vector3(0, 0, 0), time).setOnComplete(() => {
+                LeanTween.rotateLocal(_Player.gameObject, playerRotationDiretion, time / 2);
+                foreach (Collider c in col)
                 {
                     c.enabled = true;
                 }
@@ -41,7 +54,7 @@ public class Cupboard : InteractBase, Interacter
             _Player.controller.enabled = false;
             _Player.gameObject.layer = 0;
         }
-        else if(_Player.transform.parent == hidePosition)
+        else if (_Player.transform.parent == hidePosition)
         {
             _Player.transform.parent = null;
             foreach (Collider c in col)
@@ -50,7 +63,7 @@ public class Cupboard : InteractBase, Interacter
             }
             LeanTween.move(_Player.gameObject, exitPosition.position, time).setOnComplete(() =>
             {
-                
+
                 foreach (Collider c in col)
                 {
                     c.enabled = true;
@@ -59,6 +72,11 @@ public class Cupboard : InteractBase, Interacter
             _Player.gameObject.layer = 8;
             _Player.controller.enabled = true;
         }
+    }
+    public void OpenCloseCupboard()
+    {
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Open")) anim.Play("Close");
+        else anim.Play("Open");
     }
 
     public void Drop()
