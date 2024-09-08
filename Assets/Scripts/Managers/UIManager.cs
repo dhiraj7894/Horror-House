@@ -9,5 +9,6 @@ namespace HorroHouse
     {
         public TextMeshProUGUI _currentProgressTxt;
         public InteractionUI _interactionUI;
+        public StoryPanal _storyPanal;
     }
 }

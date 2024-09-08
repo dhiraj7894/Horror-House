@@ -129,7 +129,7 @@ Transform:
   - {fileID: 6748840534967260450}
   - {fileID: 7565316174659580541}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1532128493596894555
 MonoBehaviour:
@@ -143,8 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a4fcbafad6a76468e5ee9827dccbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Heighlight: {fileID: 1476623848483675466}
+  _Heighlight: {fileID: 0}
+  isLocked: 0
   _UIText: Hide
+  _LockedText: 
+  isHideable: 1
   hidePosition: {fileID: 2047526214009613996}
   exitPosition: {fileID: 7565316174659580541}
   anim: {fileID: 0}

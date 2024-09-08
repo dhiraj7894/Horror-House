@@ -55,9 +55,20 @@ namespace HorroHouse.Player
             {
                 if(hit.transform.TryGetComponent<Interacter>(out Interacter inT))
                 {
-                    inT.Interact();
+                    
+                    if (hit.transform.GetComponent<InteractBase>())
+                    {
+                        InteractBase interactBase = hit.transform.GetComponent<InteractBase>();
+                        if (!interactBase.isLocked)
+                        {
+                            if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+                            UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                            inT.Interact();
+                        }
+                        
+                    }
                     //UIManager.Instance._interactionUI._UIText.text = "";
-                    //LeanTween.value(1, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+                    
                 }
             }
         }
@@ -72,9 +83,10 @@ namespace HorroHouse.Player
                     if (!this.interactBase)
                     {
                         this.interactBase = interactBase;
-                        if(interactBase._Heighlight) interactBase._Heighlight.SetActive(true);
-                        UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
+                        if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
+                        UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;                        
                         LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+
                     }                                       
                 }
                 else 
@@ -96,7 +108,7 @@ namespace HorroHouse.Player
 
         public void NonInteractionCode()
         {            
-            if(interactBase._Heighlight) interactBase._Heighlight.SetActive(false);
+            if(interactBase._Heighlight) interactBase._Heighlight.enabled = false;
             interactBase = null;
             UIManager.Instance._interactionUI._UIText.text = "";
             LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });

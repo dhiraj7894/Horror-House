@@ -249,6 +249,11 @@ PrefabInstance:
       propertyPath: time
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1532128493596894555, guid: c7f4c53a37f953b47a81d721b66f3782,
+        type: 3}
+      propertyPath: _Heighlight
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2047526214009613996, guid: c7f4c53a37f953b47a81d721b66f3782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 3781125067265641088, guid: c7f4c53a37f953b47a81d721b66f3782,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3781125067265641088, guid: c7f4c53a37f953b47a81d721b66f3782,
         type: 3}

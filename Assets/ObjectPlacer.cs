@@ -12,6 +12,7 @@ public class ObjectPlacer : InteractBase, Interacter
     public Item[] _requirements;
     public Transform[] _requirementPositions;
 
+    public int placementCount = 0;
 
     private void Start()
     {
@@ -34,9 +35,16 @@ public class ObjectPlacer : InteractBase, Interacter
                    Transform obj =  _player.GetComponent<ControllerPlayer>()._targetPlace.GetChild(0);
                     obj.parent = _requirementPositions[item.id];
                     obj.localPosition = Vector3.zero;
-                    obj.localRotation = Quaternion.identity;                    
+                    obj.localRotation = Quaternion.identity;
+                    placementCount++;
                 }
             }
+        }
+
+        if(placementCount >= 9)
+        {
+            isLocked = true;
+            GetComponent<Collider>().enabled = false;
         }
     }
 }

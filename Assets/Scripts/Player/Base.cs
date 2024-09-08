@@ -91,8 +91,8 @@ namespace HorroHouse.Player
             }
             else
             {
-                player.controller.center = new Vector3(0, 0.85f, 0);
-                player.controller.height = 1.7f;
+                player.controller.center = new Vector3(0, 0.75f, 0);
+                player.controller.height = 1.5f;
                 player.playerGFXTransform.localPosition = new Vector3(0, 0, 0);
                 _playerSpeed = player.playerSpeed * (1.3f);
             }

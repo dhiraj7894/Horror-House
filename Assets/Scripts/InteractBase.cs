@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InteractBase : MonoBehaviour
 {
-    public GameObject _Heighlight;
+    public Outline _Heighlight;
     public bool isLocked = false;
     public string _UIText;
     public string _LockedText;

@@ -19,8 +19,10 @@ namespace HorroHouse.Player
 
         [Space(10)]
         public CharacterController controller;
+        public ControllerPlayer playerController;
         public Animator anim;
         public Transform cameraTransform;
+        public GameObject playerCamera;
         public Transform playerGFXTransform;
         public Rigidbody rb;
         
