@@ -29,6 +29,8 @@ namespace HorroHouse.Player
         private void PressFButton()
         {
             CheckRaycaster();
+            if (interactBase) interactBase = null;
+            if (itemData && _targetPlace.childCount<=0) itemData = null;
         }
         private void PressGButton()
         {
@@ -59,17 +61,24 @@ namespace HorroHouse.Player
                     if (hit.transform.GetComponent<InteractBase>())
                     {
                         InteractBase interactBase = hit.transform.GetComponent<InteractBase>();
-                        if (!interactBase.isLocked)
+                        if(interactBase.isLocked && itemData) {
+                            if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+                            UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                            inT.Interact();
+                        }else if (!interactBase.isLocked)
                         {
                             if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                             inT.Interact();
                         }
                         
-                    }
-                    //UIManager.Instance._interactionUI._UIText.text = "";
-                    
+                    }                    
                 }
+            }
+
+            if (!interactBase)
+            {
+                if (UIManager.Instance._interactionUI._canvasGroup.alpha == 1) UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
             }
         }
 
@@ -80,14 +89,10 @@ namespace HorroHouse.Player
             {
                 if (hit.transform.TryGetComponent<InteractBase>(out InteractBase interactBase))
                 {
-                    if (!this.interactBase)
-                    {
-                        this.interactBase = interactBase;
-                        if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
-                        UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;                        
-                        LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
-
-                    }                                       
+                    this.interactBase = interactBase;
+                    if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
+                    UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
+                    LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });                                      
                 }
                 else 
                 {
@@ -104,6 +109,11 @@ namespace HorroHouse.Player
                 NonInteractionCode();
             }
 
+            if (!interactBase)
+            {
+                if (UIManager.Instance._interactionUI._canvasGroup.alpha == 1) UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+            }
+
         }
 
         public void NonInteractionCode()
@@ -111,7 +121,8 @@ namespace HorroHouse.Player
             if(interactBase._Heighlight) interactBase._Heighlight.enabled = false;
             interactBase = null;
             UIManager.Instance._interactionUI._UIText.text = "";
-            LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+            UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+            //LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
         }
 
         private void OnTriggerEnter(Collider other)

@@ -33473,6 +33473,7 @@ GameObject:
   - component: {fileID: 3378494468037705343}
   - component: {fileID: 6415810075640624851}
   - component: {fileID: 145257456862132578}
+  - component: {fileID: 7209643392406393344}
   m_Layer: 6
   m_Name: Door (1)
   m_TagString: Untagged
@@ -33560,6 +33561,29 @@ MonoBehaviour:
   doorOpeningAngle: -90
   initialDoorAngle: 0
   currentEA: 0
+--- !u!114 &7209643392406393344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3380170910819275798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee7e3580a3e67041a94798ac6f40f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Heighlight: {fileID: 6415810075640624851}
+  isLocked: 1
+  _UIText: 
+  _LockedText: Need Basement Key
+  _player: {fileID: 0}
+  _requirements: {fileID: 0}
+  _requirementPositions: {fileID: 0}
+  col: []
+  doorOpeningTime: 0.5
+  doorOpeningAngle: -90
+  doorClosingAngle: 0
 --- !u!1 &4100701328307339009
 GameObject:
   m_ObjectHideFlags: 0
@@ -37321,7 +37345,7 @@ Transform:
   - {fileID: 1254899575177728677}
   - {fileID: 4001679618038927970}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6217842445273798609
 GameObject:
