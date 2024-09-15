@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6937876136501742903, guid: 4164a9c5e5e0faf43b445bee9c530a7c,
+        type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8662037822603338477, guid: 4164a9c5e5e0faf43b445bee9c530a7c,
         type: 3}
       propertyPath: m_Size.x

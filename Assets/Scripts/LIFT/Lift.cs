@@ -17,7 +17,7 @@ public class Lift : MonoBehaviour
 
     public bool isMoving = false;
     public Collider col;
-    public MainPlayer player;
+    [HideInInspector]public MainPlayer player;
 
     public void SetHeight(int floor)
     {

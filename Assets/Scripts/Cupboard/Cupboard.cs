@@ -11,7 +11,7 @@ public class Cupboard : InteractBase, Interacter
     public Transform exitPosition;
     public Animator anim;
     
-    public MainPlayer _Player;
+    private MainPlayer _Player;
     public Vector3 playerRotationDiretion;
 
     public float time = 1;

@@ -91,7 +91,10 @@ namespace HorroHouse.Player
                 {
                     this.interactBase = interactBase;
                     if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
-                    UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
+                    if(!interactBase.isLocked) 
+                        UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
+                    else
+                        UIManager.Instance._interactionUI._UIText.text = interactBase._LockedText;
                     LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });                                      
                 }
                 else 
@@ -119,8 +122,7 @@ namespace HorroHouse.Player
         public void NonInteractionCode()
         {            
             if(interactBase._Heighlight) interactBase._Heighlight.enabled = false;
-            interactBase = null;
-            UIManager.Instance._interactionUI._UIText.text = "";
+            interactBase = null;            
             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
             //LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
         }

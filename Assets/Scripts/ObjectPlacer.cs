@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ObjectPlacer : InteractBase, Interacter
 {
-    public MainPlayer _player;
+    private MainPlayer _player;
 
     public Item[] _requirements;
     public Transform[] _requirementPositions;

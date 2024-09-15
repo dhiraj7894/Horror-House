@@ -10,6 +10,11 @@ public class LiftButton : InteractBase, Interacter
     public Collider col;
     public Collider[] otherCol;
 
+
+    private void Start()
+    {       
+    }
+
     public void Drop()
     {
         throw new System.NotImplementedException();

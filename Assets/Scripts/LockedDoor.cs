@@ -8,7 +8,7 @@ using static UnityEditor.Progress;
 public class LockedDoor : InteractBase, Interacter
 {
     [Space(10)]
-    public MainPlayer _player;
+    private MainPlayer _player;
 
     public Item _requirements;
     public Transform _requirementPositions;
@@ -20,8 +20,7 @@ public class LockedDoor : InteractBase, Interacter
 
     private void Start()
     {
-        _player = GameManager.Instance._PlayerObject;
-        if(isLocked)_UIText = _LockedText;
+        _player = GameManager.Instance._PlayerObject;        
     }
     public void Interact()
     {

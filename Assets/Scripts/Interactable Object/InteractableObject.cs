@@ -8,7 +8,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class InteractableObject : InteractBase, Interacter
 {
     public Item itemData;
-    public MainPlayer _player;
+    private MainPlayer _player;
     public Rigidbody _body;
     public Collider _collider;
 
