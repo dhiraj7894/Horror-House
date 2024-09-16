@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Branches
+    second: {fileID: 2100000, guid: 4b982b9ba0d875445b9e205d6b868998, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Leaf
     second: {fileID: 2100000, guid: 5c23a46f49375544d89baff2baaac71f, type: 2}
   materials:
