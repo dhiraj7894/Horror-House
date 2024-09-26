@@ -83,7 +83,7 @@ Material:
     - _DstBlendAlpha: 10
     - _EmissionScaleUI: 0
     - _Glossiness: 0.5
-    - _InvFade: 0.2
+    - _InvFade: 3
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -104,5 +104,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 0.5803922}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.8509804}
   m_BuildTextureStacks: []

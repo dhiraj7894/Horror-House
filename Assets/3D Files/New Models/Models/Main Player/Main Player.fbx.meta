@@ -57,14 +57,7 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 8.886459 mm\n\t'mixamorig:LeftLeg' : position error = 27.602951
-      mm\n\t'mixamorig:LeftFoot' : position error = 62.837242 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 21.752312 mm\n\t'mixamorig:RightUpLeg' : position error
-      = 7.861000 mm\n\t'mixamorig:RightLeg' : position error = 27.529135 mm\n\t'mixamorig:RightFoot'
-      : position error = 62.968178 mm\n\t'mixamorig:RightToeBase' : position error
-      = 16.638203 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -95,7 +88,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -118,7 +111,7 @@ ModelImporter:
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
