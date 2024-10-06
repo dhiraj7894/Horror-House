@@ -21,10 +21,12 @@ public class LockedLocker : InteractBase, Interacter
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (!_Heighlight)
+            return;
+        if (_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
     }
 
     public void Interact()

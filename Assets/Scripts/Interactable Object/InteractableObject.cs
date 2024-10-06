@@ -19,6 +19,14 @@ public class InteractableObject : InteractBase, Interacter
     {
         _player = GameManager.Instance._PlayerObject;
     }
+
+    private void Update()
+    {
+        if (!_Heighlight)
+            return;
+        if(_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
+    }
     public void Interact()
     {
         if(_player.GetComponent<ControllerPlayer>()._targetPlace.childCount<= 0)

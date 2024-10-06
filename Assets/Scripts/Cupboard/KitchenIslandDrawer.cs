@@ -3,9 +3,11 @@ using HorroHouse;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class KitchenIslandDrawer : InteractBase, Interacter
 {
+    private MainPlayer _player;
     public float openPosition;
     public float closePosition;
 
@@ -13,6 +15,7 @@ public class KitchenIslandDrawer : InteractBase, Interacter
     public Collider[] col;
     private void Start()
     {
+        _player = GameManager.Instance._PlayerObject;
         _UIText = "Open";
     }
     public void Interact()
@@ -28,7 +31,13 @@ public class KitchenIslandDrawer : InteractBase, Interacter
         }
     }
 
-
+    private void Update()
+    {
+        if (!_Heighlight)
+            return;
+        if (_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
+    }
     public void Drop()
     {
 

@@ -3,6 +3,7 @@ using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Cupboard : InteractBase, Interacter
 {
@@ -32,7 +33,13 @@ public class Cupboard : InteractBase, Interacter
             OpenCloseCupboard();
         }
     }
-
+    private void Update()
+    {
+        if (!_Heighlight)
+            return;
+        if (_Player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
+    }
     public void HideInCupboard()
     {
         UITextUpdate();

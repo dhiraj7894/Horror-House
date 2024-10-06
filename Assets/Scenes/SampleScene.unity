@@ -2303,6 +2303,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316090082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &329496214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8003968784079088689, guid: da2724f6a65b2a043b62c2001b9914dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 742496732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &329496219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329496214}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &331221195
 GameObject:
   m_ObjectHideFlags: 0
@@ -6364,6 +6388,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2055892654}
+    - target: {fileID: 355261368188074223, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.171
+      objectReference: {fileID: 0}
     - target: {fileID: 381537903004998692, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_Mesh
@@ -6414,6 +6443,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1356430370}
+    - target: {fileID: 695298864978508990, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: _Heighlight
+      value: 
+      objectReference: {fileID: 1855180788}
     - target: {fileID: 705112419270488151, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6532,7 +6566,7 @@ PrefabInstance:
     - target: {fileID: 1721693754880054181, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1821722557741762882, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
@@ -6700,6 +6734,11 @@ PrefabInstance:
       propertyPath: outlineMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3159123054245365668, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: _Heighlight
+      value: 
+      objectReference: {fileID: 329496219}
     - target: {fileID: 3326394323326829815, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_Mesh
@@ -6764,6 +6803,16 @@ PrefabInstance:
         type: 3}
       propertyPath: outlineMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583579152054583826, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.099
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583579152054583826, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3626372709502818827, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
@@ -6950,6 +6999,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 526995679}
+    - target: {fileID: 4430350149193011617, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: Story
+      value: '<color=black>He Hanuman, Meri raksha karo.
+
+        O Hanuman, protect
+        me.</color>'
+      objectReference: {fileID: 0}
     - target: {fileID: 4526656348168779959, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_Mesh
@@ -7378,7 +7435,7 @@ PrefabInstance:
     - target: {fileID: 8003968784079088689, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055794056572222104, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
@@ -7389,6 +7446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: outlineMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104514026035930174, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.485
       objectReference: {fileID: 0}
     - target: {fileID: 8124485960499585508, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
@@ -7434,6 +7496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpotAngle
       value: 95.927475
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507391849265222276, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.606
       objectReference: {fileID: 0}
     - target: {fileID: 8530688815172878955, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
@@ -7550,7 +7617,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9006305375271078378, guid: da2724f6a65b2a043b62c2001b9914dc, type: 3}
+    - {fileID: 2866494199869865491, guid: da2724f6a65b2a043b62c2001b9914dc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2008474559478340463, guid: da2724f6a65b2a043b62c2001b9914dc, type: 3}
     - {fileID: 8840798508706588152, guid: da2724f6a65b2a043b62c2001b9914dc, type: 3}
@@ -7589,6 +7658,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 493682077}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9209857151055966300, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 964961503}
+    - targetCorrespondingSourceObject: {fileID: 8003968784079088689, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 329496219}
+    - targetCorrespondingSourceObject: {fileID: 1721693754880054181, guid: da2724f6a65b2a043b62c2001b9914dc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1855180788}
     - targetCorrespondingSourceObject: {fileID: 2508279499591925781, guid: da2724f6a65b2a043b62c2001b9914dc,
         type: 3}
       insertIndex: -1
@@ -9320,7 +9401,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9524,6 +9605,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 961271714}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &964961499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9209857151055966300, guid: da2724f6a65b2a043b62c2001b9914dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 742496732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &964961503
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964961499}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3712923409972700814, guid: f4b29631ed61bab40ae105049cd8c514, type: 3}
 --- !u!1 &981181814
 GameObject:
   m_ObjectHideFlags: 0
@@ -17691,6 +17800,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844168896}
   m_CullTransparentMesh: 1
+--- !u!1 &1855180783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1721693754880054181, guid: da2724f6a65b2a043b62c2001b9914dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 742496732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855180788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855180783}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1943811149
 GameObject:
   m_ObjectHideFlags: 0

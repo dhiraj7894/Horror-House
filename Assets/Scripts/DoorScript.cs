@@ -1,10 +1,14 @@
 using HorroHouse;
+using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class DoorScript : InteractBase, Interacter
 {
+    private MainPlayer _player;
+
     public Transform interactableUI;
 
     public bool isPlayerNear = false;
@@ -19,6 +23,7 @@ public class DoorScript : InteractBase, Interacter
     private void Start()
     {
         // Interact();
+        _player = GameManager.Instance._PlayerObject;
         EventManager.Instance.PressFButton += PressFButton;
         _UIText = "Open Door";
         //initialDoorAngle = transform.eulerAngles.y;
@@ -53,6 +58,10 @@ public class DoorScript : InteractBase, Interacter
     private void Update()
     {
         currentEA = transform.localEulerAngles.y;
+        if (!_Heighlight)
+            return;
+        if (_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
     }
 
 

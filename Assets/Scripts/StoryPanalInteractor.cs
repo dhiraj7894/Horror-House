@@ -18,7 +18,6 @@ public class StoryPanalInteractor : InteractBase, Interacter
     {
         
     }
-
     public void Interact()
     {
         UIManager.Instance._storyPanal.SetData(true, Story);
@@ -34,5 +33,9 @@ public class StoryPanalInteractor : InteractBase, Interacter
             UIManager.Instance._storyPanal.SetData(false, Story);
             _player.enabled = true;
         }
+        if (!_Heighlight)
+            return;
+        if (_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
     }
 }

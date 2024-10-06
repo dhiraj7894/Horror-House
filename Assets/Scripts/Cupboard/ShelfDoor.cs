@@ -1,6 +1,9 @@
+using HorroHouse;
+using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ShelfDoor : InteractBase, Interacter
 {
@@ -13,9 +16,12 @@ public class ShelfDoor : InteractBase, Interacter
 
     public float time = 1;
     public Collider[] col;
+
+    private MainPlayer _player;
     private void Start()
     {
         _UIText = "Open";
+        _player = GameManager.Instance._PlayerObject;
     }
     public void Interact()
     {
@@ -34,7 +40,6 @@ public class ShelfDoor : InteractBase, Interacter
     {
 
     }
-
     void UITextUpdate()
     {
         if (_UIText.Contains("Open"))
@@ -52,6 +57,10 @@ public class ShelfDoor : InteractBase, Interacter
 
     private void Update()
     {
+        if (!_Heighlight)
+            return;
+        if (_player.playerController.interactBase == null)
+            _Heighlight.enabled = false;
         checkRotation();
     }
 

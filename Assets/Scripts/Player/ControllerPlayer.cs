@@ -11,7 +11,7 @@ namespace HorroHouse.Player
         public LayerMask interactableLayer;
         [Space(10)]
         public Item itemData;
-        [SerializeField] InteractBase interactBase;
+        public InteractBase interactBase;
 
         [Space(5)]
         public MainPlayer mainPlayer;
@@ -69,7 +69,7 @@ namespace HorroHouse.Player
                             if (_targetPlace.childCount <= 0)
                             {
                                 Debug.Log("Child Count Null");
-                                UIManager.Instance._itemInHand.text = "Null";
+                                UIManager.Instance.SetInHandItemString();
                             }
                         }
                         else if (!interactBase.isLocked)
@@ -80,7 +80,7 @@ namespace HorroHouse.Player
                             if (_targetPlace.childCount <= 0)
                             {
                                 Debug.Log("Child Count Null");
-                                UIManager.Instance._itemInHand.text = "Null";
+                                UIManager.Instance.SetInHandItemString();
                             }
                         }
                         
