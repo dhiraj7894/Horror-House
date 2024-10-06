@@ -17,6 +17,7 @@ public class Genrator : InteractBase, Interacter
 
     public Collider[] col;
     public int placementCount = 0;
+    [SerializeField]private List<Transform> FuseCounts = new List<Transform>();
     private void Start()
     {
         _player = GameManager.Instance._PlayerObject;
@@ -35,7 +36,10 @@ public class Genrator : InteractBase, Interacter
                     obj.localPosition = Vector3.zero;
                     obj.localRotation = Quaternion.identity;
                     _indicatorLight[item.id].material.SetColor("_EmissionColor", colour);
+                    FuseCounts.Add(obj);
                     placementCount++;
+                    // Cutscene for Genrator Power Text
+                    CheckFuseConnection();
                 }
             }
         }
@@ -48,5 +52,17 @@ public class Genrator : InteractBase, Interacter
     public void Drop()
     {
 
+    }
+
+    public void CheckFuseConnection()
+    {
+        if(FuseCounts.Count == 1)
+        {
+            EventManager.Instance.FuseOneConnected();
+        }
+        if(FuseCounts.Count == 2)
+        {
+            EventManager.Instance.FuseTwoConnected();
+        }
     }
 }

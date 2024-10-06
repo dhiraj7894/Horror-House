@@ -9,8 +9,9 @@ public class LockedLocker : InteractBase, Interacter
     [Space(10)]
     private MainPlayer _player;
 
+    public GameObject SpwannigObject;
     public GameObject door;
-
+    public Collider col;
     public float doorOpeningTime = .5f;
     public float doorOpeningAngle = -70;
 
@@ -40,7 +41,10 @@ public class LockedLocker : InteractBase, Interacter
     public void OpenTheDoor()
     {
         LeanTween.rotateLocal(door, new Vector3(doorOpeningAngle,0,0), doorOpeningTime).setOnComplete(() => {
-        // Spwan item if required 
+            // Spwan item if required 
+            SpwannigObject.SetActive(true);
+            col.enabled = false;
         });
     }
+
 }

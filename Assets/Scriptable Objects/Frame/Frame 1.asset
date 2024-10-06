@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Frame 1
   m_EditorClassIdentifier: 
   id: 0
-  Name: 
+  Name: Frame Part
   UI: {fileID: 0}
   attachmentTime: 0

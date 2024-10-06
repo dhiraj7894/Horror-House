@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace HorroHouse.Player
 {
@@ -61,15 +62,26 @@ namespace HorroHouse.Player
                     if (hit.transform.GetComponent<InteractBase>())
                     {
                         InteractBase interactBase = hit.transform.GetComponent<InteractBase>();
-                        if(interactBase.isLocked && itemData) {
+                        if(!interactBase.isLocked && itemData) {
                             if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                             inT.Interact();
-                        }else if (!interactBase.isLocked)
+                            if (_targetPlace.childCount <= 0)
+                            {
+                                Debug.Log("Child Count Null");
+                                UIManager.Instance._itemInHand.text = "Null";
+                            }
+                        }
+                        else if (!interactBase.isLocked)
                         {
                             if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                             inT.Interact();
+                            if (_targetPlace.childCount <= 0)
+                            {
+                                Debug.Log("Child Count Null");
+                                UIManager.Instance._itemInHand.text = "Null";
+                            }
                         }
                         
                     }                    
@@ -78,53 +90,57 @@ namespace HorroHouse.Player
 
             if (!interactBase)
             {
-                if (UIManager.Instance._interactionUI._canvasGroup.alpha == 1) UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                if (UIManager.Instance._interactionUI._canvasGroup.alpha == 1) 
+                    UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
             }
-        }
 
-        
+        }        
         public void RaycastUpdate()
         {
+            InteractBase previousInteractBase = interactBase; // Store the previous interactBase            
             if (Physics.Raycast(_camera.position, _camera.forward, out RaycastHit hit, _distance, interactableLayer))
             {
-                if (hit.transform.TryGetComponent<InteractBase>(out InteractBase interactBase))
+                if (hit.transform.TryGetComponent<InteractBase>(out InteractBase newInteractBase))
                 {
-                    this.interactBase = interactBase;
+                    interactBase = newInteractBase; // Set the new interactBase
+                    
+                    // Disable the previous interactBase's highlight, if it's different
+                    if (previousInteractBase && previousInteractBase != interactBase)
+                    {
+                        if (previousInteractBase._Heighlight) previousInteractBase._Heighlight.enabled = false;                        
+                    }
+                    
+
+                    // Enable the new interactBase's highlight
                     if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
-                    if(!interactBase.isLocked) 
+
+                    // Update interaction UI
+                    if (!interactBase.isLocked)
                         UIManager.Instance._interactionUI._UIText.text = interactBase._UIText;
                     else
                         UIManager.Instance._interactionUI._UIText.text = interactBase._LockedText;
-                    LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });                                      
+
+                    LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 1, time)
+                             .setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
                 }
-                else 
-                {
-                    if (this.interactBase)
-                    {
-                        NonInteractionCode();
-                    }
-                        
+                else if(interactBase)
+                {                    
+                    UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                    interactBase = null;
                 }
-
             }
-            else if(interactBase)
+            else if (interactBase)
             {
-                NonInteractionCode();
+                // No hit, disable the current interactBase's highlight
+                if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+                UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                interactBase = null;                
             }
 
-            if (!interactBase)
+            if (!interactBase && UIManager.Instance._interactionUI._canvasGroup.alpha == 1)
             {
-                if (UIManager.Instance._interactionUI._canvasGroup.alpha == 1) UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
-            }
-
-        }
-
-        public void NonInteractionCode()
-        {            
-            if(interactBase._Heighlight) interactBase._Heighlight.enabled = false;
-            interactBase = null;            
-            UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
-            //LeanTween.value(UIManager.Instance._interactionUI._canvasGroup.alpha, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
+                UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+            }            
         }
 
         private void OnTriggerEnter(Collider other)

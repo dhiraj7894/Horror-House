@@ -129,11 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Heighlight: {fileID: 5841513578154372179}
-  isLocked: 0
-  _UIText: 
+  isUnlocked: 0
+  _UIText: Pick up
   _LockedText: 
   itemData: {fileID: 11400000, guid: 9248f691cd222914c842e39737438857, type: 2}
-  _player: {fileID: 0}
   _body: {fileID: 2577413426014757002}
   _collider: {fileID: 5293646143978675151}
   itemPosition: {x: 0, y: 0, z: 0}

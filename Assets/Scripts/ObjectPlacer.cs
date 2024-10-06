@@ -13,10 +13,11 @@ public class ObjectPlacer : InteractBase, Interacter
     public Transform[] _requirementPositions;
 
     public int placementCount = 0;
-
+    public GameObject GarageKey;
     private void Start()
     {
         _player = GameManager.Instance._PlayerObject;
+        GarageKey.SetActive(false);
     }
 
     public void Drop()
@@ -45,6 +46,16 @@ public class ObjectPlacer : InteractBase, Interacter
         {
             isLocked = true;
             GetComponent<Collider>().enabled = false;
+            FrameChecker();
+        }
+    }
+
+    public void FrameChecker()
+    {
+        if (isLocked)
+        {
+            EventManager.Instance.PhotoFrameUnlocked();            
+            GarageKey.SetActive(true);
         }
     }
 }

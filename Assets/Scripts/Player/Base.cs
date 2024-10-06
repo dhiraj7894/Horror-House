@@ -59,7 +59,7 @@ namespace HorroHouse.Player
             float mouseY = mouse.y * player.mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -50, 50);
+            xRotation = Mathf.Clamp(xRotation, player.minHeadRotation, player.maxHeadRotation);
 
 
             player.cameraTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);

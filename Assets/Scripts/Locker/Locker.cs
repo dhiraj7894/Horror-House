@@ -12,8 +12,9 @@ public class Locker : InteractBase, Interacter
     public List<TextMeshPro> passWordNumbers;
     public List<Collider> cols;
 
+    
     public GameObject lockerCamera;
-
+    public GameObject hanumanChalisaBook;
 
     private MainPlayer player;
     private Transform currentKey;
@@ -31,6 +32,12 @@ public class Locker : InteractBase, Interacter
         player = GameManager.Instance._PlayerObject;
         //OnSelectLocker();
         RandomizeTheNumber();
+        hanumanChalisaBook.SetActive(false);
+    }
+
+    private void Fuse2Connected()
+    {
+        isLocked = true;
     }
 
     public void Interact()
@@ -178,13 +185,15 @@ public class Locker : InteractBase, Interacter
             }            
         }
         Debug.Log("<color=green><b>Password Matched !! </b></color>");
-        DisableCollider();
+        LockerUnlocked();
         return true;
     }
 
-    void DisableCollider()
+    void LockerUnlocked()
     {
         isOpend = true;
+        _Animator.Play("Open");
+        hanumanChalisaBook.SetActive(true);
         foreach (Collider col in cols)
         {
             col.enabled = false;

@@ -29,7 +29,10 @@ public class InteractableObject : InteractBase, Interacter
             this.transform.localRotation = itemRotation;
             _body.isKinematic = true;
             _collider.enabled = false;
+            UIManager.Instance.SetInHandItemString(itemData.Name);
         }
+
+        
     }
 
     public void Drop()
@@ -37,5 +40,6 @@ public class InteractableObject : InteractBase, Interacter
         this.transform.parent = null;
         _body.isKinematic = false;
         _collider.enabled = true;
+        UIManager.Instance.SetInHandItemString();
     }
 }

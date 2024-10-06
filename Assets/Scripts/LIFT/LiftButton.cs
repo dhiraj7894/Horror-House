@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LiftButton : InteractBase, Interacter
 {
     public bool isInsidesButton = true;
@@ -9,10 +10,10 @@ public class LiftButton : InteractBase, Interacter
     public int _floor;
     public Collider col;
     public Collider[] otherCol;
-
+    public GameObject LiftHighlight;
 
     private void Start()
-    {       
+    {
     }
 
     public void Drop()
@@ -29,8 +30,11 @@ public class LiftButton : InteractBase, Interacter
         {
             lift.player.controller.enabled = false;
             lift.player.gameObject.layer = 0;
-
         }
+        LiftHighlight.SetActive(true);
+        LeanTween.delayedCall(.1f, () => {
+            LiftHighlight.SetActive(false);
+        });
     }
 
     public void OffOtherCollider()
@@ -40,5 +44,5 @@ public class LiftButton : InteractBase, Interacter
             col.isTrigger = false;
         }
     }
-    
+
 }

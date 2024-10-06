@@ -48,6 +48,7 @@ public class LockedDoor : InteractBase, Interacter
 
     public void OpenTheDoor()
     {
+        Debug.Log("Temple Lock Unlocked");
         LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc().setOnComplete(() => {
             gameObject.layer = 0;
             isLocked = false;   

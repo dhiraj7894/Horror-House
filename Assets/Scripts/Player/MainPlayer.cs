@@ -34,6 +34,8 @@ namespace HorroHouse.Player
         public float playerSpeed = 15;
         public float sprintSpeedMultiplier = 4;
         public float gravityMultiplier = 3.0f;
+        public float maxHeadRotation = 50;
+        public float minHeadRotation = -50;
 
 
         [Space(10)]

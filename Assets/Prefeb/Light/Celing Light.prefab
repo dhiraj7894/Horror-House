@@ -45,9 +45,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
-  m_Range: 10
-  m_SpotAngle: 136.04001
+  m_Intensity: 2
+  m_Range: 5.994407
+  m_SpotAngle: 73.91766
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
@@ -149,7 +149,7 @@ Transform:
   - {fileID: 4388386183342094855}
   - {fileID: 8135472134882913571}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4281819915069627884
 PrefabInstance:

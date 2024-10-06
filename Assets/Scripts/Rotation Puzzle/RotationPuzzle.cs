@@ -1,18 +1,17 @@
-using HorroHouse.Player;
-using HorroHouse;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using HorroHouse.Player;
+using HorroHouse;
 
 public class RotationPuzzle : InteractBase, Interacter
 {
     public List<Transform> lockerKeys;
-    public List<SpriteRenderer> passWordNumbers;
+    public List<Transform> passWordNumbers;
     public List<Collider> cols;
 
     public GameObject lockerCamera;
-
+    public GameObject _basementKey;
 
     private MainPlayer player;
     private Transform currentKey;
@@ -25,17 +24,16 @@ public class RotationPuzzle : InteractBase, Interacter
 
     private bool isInteracted = false;
     private bool isOpend = false;
+
     private void Start()
     {
         player = GameManager.Instance._PlayerObject;
-        //OnSelectLocker();
         RandomizeTheNumber();
+        _basementKey.SetActive(false);
     }
 
     public void Interact()
-    {
-              
-        OnSelectLocker();
+    {       
         player.enabled = false;
         player.playerController.enabled = false;
         lockerCamera.SetActive(true);
@@ -47,18 +45,13 @@ public class RotationPuzzle : InteractBase, Interacter
             {
                 col.enabled = false;
             }
-        }        
+        }
     }
     public void Drop()
     {
 
     }
 
-    public void UpdateOnInteract()
-    {
-        // Camera switch to Locker facing
-        selectedIndex = (lockerKeys.Count - lockerKeys.Count);
-    }
     private void Update()
     {
         if (isInteracted)
@@ -66,13 +59,13 @@ public class RotationPuzzle : InteractBase, Interacter
             PasswordUpdate();
             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
         }
+    }
 
-        }
-        public void PasswordUpdate()
+    public void PasswordUpdate()
     {
         SelectWheel();
         RotateWheel();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             MatchThePassword();
             player.playerCamera.SetActive(true);
@@ -92,113 +85,125 @@ public class RotationPuzzle : InteractBase, Interacter
 
     public void SelectWheel()
     {
-        // index select key cylinder on left right click (change index value)        
+        // Rotate locker objects on selection (left-right navigation)
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (selectedIndex >= lockerKeys.Count - 1)
-            {
-                previusIndex = selectedIndex;
-                selectedIndex = 0;
-                currentKey = lockerKeys[selectedIndex];
-                currentKey.GetComponent<Outline>().enabled = true;
-                lockerKeys[previusIndex].GetComponent<Outline>().enabled = false;
-            }
-            else
-            {
-                previusIndex = selectedIndex;
-                selectedIndex++;
-                currentKey = lockerKeys[selectedIndex];
-                currentKey.GetComponent<Outline>().enabled = true;
-                lockerKeys[previusIndex].GetComponent<Outline>().enabled = false;
-            }
-            currentNumberOnKey = currentKey.eulerAngles.z;
+            previusIndex = selectedIndex;
+            selectedIndex = (selectedIndex >= lockerKeys.Count - 1) ? 0 : selectedIndex + 1;
         }
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (selectedIndex <= 0)
-            {
-
-                previusIndex = selectedIndex;
-                selectedIndex = lockerKeys.Count - 1;
-                currentKey = lockerKeys[selectedIndex];
-                currentKey.GetComponent<Outline>().enabled = true;
-                lockerKeys[previusIndex].GetComponent<Outline>().enabled = false;
-            }
-            else
-            {
-                previusIndex = selectedIndex;
-                selectedIndex--;
-                currentKey = lockerKeys[selectedIndex];
-                currentKey.GetComponent<Outline>().enabled = true;
-                lockerKeys[previusIndex].GetComponent<Outline>().enabled = false;
-            }
-            currentNumberOnKey = currentKey.eulerAngles.z;
+            previusIndex = selectedIndex;
+            selectedIndex = (selectedIndex <= 0) ? lockerKeys.Count - 1 : selectedIndex - 1;
         }
-        
+
+        currentKey = lockerKeys[selectedIndex];
+        currentNumberOnKey = currentKey.eulerAngles.y;
+        lockerKeys[previusIndex].GetComponent<Outline>().enabled = false;
+        currentKey.GetComponent<Outline>().enabled = true;
     }
 
     public void RotateWheel()
     {
-        // rotate selected cylender on up down key        
+        // Rotate currentKey by 90 degrees and wrap within 0-360 range
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            currentNumberOnKey = currentNumberOnKey + 90;
+            currentNumberOnKey = (currentNumberOnKey + 90) % 360;
             currentKey.eulerAngles = new Vector3(0, currentNumberOnKey, 0);
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            currentNumberOnKey = currentNumberOnKey - 90;
+            currentNumberOnKey = (currentNumberOnKey - 90 + 360) % 360;
             currentKey.eulerAngles = new Vector3(0, currentNumberOnKey, 0);
-
         }
-    }
-
-    void OnSelectLocker()
-    {
-        currentKey = lockerKeys[selectedIndex];
-        currentKey.GetComponent<Outline>().enabled = true;
     }
 
     void RandomizeTheNumber()
-    {
+    {       
         foreach (Transform key in lockerKeys)
         {
-            // Generate a random multiple of 20 between -180 and 180
-            int randomRotation = Random.Range(-9, 10) * 90; // -180 to 180 in multiples of 20
-
-            // Apply the rotation to the object (assuming rotation along the Y axis here)
+            // Randomly rotate lockers within 0-360 range
+            int randomRotation = Random.Range(0, 4) * 90; // 0, 90, 180, 270
             key.eulerAngles = new Vector3(0, randomRotation, 0);
         }
 
-        foreach (SpriteRenderer pass in passWordNumbers)
+        foreach (Transform pass in passWordNumbers)
         {
-            // Generate a random multiple of 20 between -180 and 180
-            int randomRotation = Random.Range(-9, 10) * 90; // -180 to 180 in multiples of 20
-
-            // Apply the rotation to the object (assuming rotation along the Y axis here)
-            pass.transform.eulerAngles = new Vector3(0, 0, randomRotation);
+            // Randomly set password numbers' rotation within 0-360 range
+            int randomRotation = Random.Range(0, 4) * 90;
+            pass.eulerAngles = new Vector3(0, randomRotation, 0);
         }
     }
-
     bool MatchThePassword()
     {
-        // Check if all the number matches or not accordingly
+        // Check if all locker rotations match the password rotations (normalize angle comparisons)
         for (int i = 0; i < lockerKeys.Count; i++)
         {
-            if (lockerKeys[i].eulerAngles.y != passWordNumbers[i].transform.eulerAngles.z)
+            float lockerRotation = NormalizeAngle(lockerKeys[i].eulerAngles.y);
+            float passwordRotation = NormalizeAngle(passWordNumbers[i].eulerAngles.y);
+
+            if (!AnglesAreEqual(lockerRotation, passwordRotation))
             {
                 Debug.Log("<color=red><b>Password Not Matched !! </b></color>");
                 return false;
             }
         }
+
         Debug.Log("<color=green><b>Password Matched !! </b></color>");
         DisableCollider();
         return true;
     }
 
+    float NormalizeAngle(float angle)
+    {
+        // Normalize any angle to the range [0, 360)
+        angle = angle % 360;
+        if (angle < 0) angle += 360;
+        return angle;
+    }
+
+    bool AnglesAreEqual(float angle1, float angle2)
+    {
+        // Compare two angles, allowing for minor float inaccuracies
+        return Mathf.Approximately(angle1, angle2);
+    }
+
+    /* bool MatchThePassword()
+     {
+         // Compare locker and password direction vectors
+         for (int i = 0; i < lockerKeys.Count; i++)
+         {
+             Vector3 lockerDirection = GetDirectionVector(lockerKeys[i]);
+             Vector3 passwordDirection = GetDirectionVector(passWordNumbers[i].transform);
+
+             if (!DirectionVectorsAreEqual(lockerDirection, passwordDirection))
+             {
+                 Debug.Log("<color=red><b>Password Not Matched !! </b></color>");
+                 return false;
+             }
+         }
+
+         Debug.Log("<color=green><b>Password Matched !! </b></color>");
+         DisableCollider();
+         return true;
+     }
+
+     Vector3 GetDirectionVector(Transform obj)
+     {
+         // Get the forward direction vector based on Y rotation
+         return obj.forward;
+     }
+
+     bool DirectionVectorsAreEqual(Vector3 dir1, Vector3 dir2)
+     {
+         // Compare direction vectors with a small tolerance
+         return Vector3.Dot(dir1, dir2) > 0.99f; // Tolerance for direction comparison
+     }*/
+
     void DisableCollider()
     {
         isOpend = true;
+        _basementKey.SetActive(true);
         foreach (Collider col in cols)
         {
             col.enabled = false;
