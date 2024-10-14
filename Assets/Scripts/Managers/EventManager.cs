@@ -3,16 +3,10 @@ using System.Security.Cryptography;
 using HorroHouse;
 using UnityEngine.Events;
 
-public class EventManager : Singleton<EventManager>
+
+[Serializable]
+public class EventForTaskComplete
 {
-    public event Action PressFButton;
-    public event Action PressGButton;
-    public static event Action SpecialAttackEnd;
-    public static event Action OrbCollected;
-    public static event Action CutSceneChange;
-
-    public static event Action isPlayerInteracting;
-
     #region EventsForStory
     public UnityEvent Fuse1Connected;
     public UnityEvent Fuse2Connected;
@@ -23,8 +17,36 @@ public class EventManager : Singleton<EventManager>
     public UnityEvent PasswordPuzzleUnlocked;
     public UnityEvent TempleDoorUnlocked;
     public UnityEvent CarStarted;
-
     #endregion
+}
+
+[Serializable]
+public class EventForTask
+{
+    #region EventsForStory
+    public UnityEvent CutSceneCompleted;
+    public UnityEvent GotFuse1;
+    public UnityEvent GotFuse2; 
+    public UnityEvent ClickedGenrator;
+    public UnityEvent ClickedGarageDoor;
+    public UnityEvent ClickedBasementDoor;
+    public UnityEvent ClickedTempleDoor;
+    public UnityEvent ClickedTarraceDoor;
+    public UnityEvent ClickedBedroomDoor;
+    #endregion
+}
+
+
+public class EventManager : Singleton<EventManager>
+{
+    public EventForTaskComplete eventForTaskComplete;
+    public EventForTask eventForTask;
+
+    public event Action PressFButton;
+    public event Action PressGButton;
+    public static event Action isPlayerInteracting;
+
+    
     public void PressedFButton()
     {
         PressFButton?.Invoke();
@@ -34,36 +56,4 @@ public class EventManager : Singleton<EventManager>
         PressGButton?.Invoke();
     }
 
-    public static void OnSpecialAttackEnd()
-    {
-        SpecialAttackEnd?.Invoke();
-    }
-
-    public static void OnOrbCollected()
-    {
-        OrbCollected?.Invoke();
-    }
-
-    public static void OnCutSceneChange()
-    {
-        CutSceneChange?.Invoke();
-    }
-
-    public void FuseOneConnected()
-    {
-        Fuse1Connected?.Invoke();     
-    }
-    public void FuseTwoConnected()
-    {        
-        Fuse2Connected?.Invoke();
-    }
-    public void PhotoFrameUnlocked()
-    {
-        FrameUnlocked?.Invoke();
-    }
-
-    public static void isPlayerInteracted()
-    {
-        isPlayerInteracting?.Invoke();
-    }
 }

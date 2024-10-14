@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
+  m_Name: Waking Up Alone
+  m_EditorClassIdentifier: 
+  text: "\"I don\u2019t know how long I was out after the power went out. When I
+    woke up, I was alone. My friends gone.\""
+  audioClip: {fileID: 8300000, guid: e326611578a6f0d4c96107c2759bc633, type: 3}
+  nextStep: {fileID: 11400000, guid: e96ed9325f15ee64b963f754b7914820, type: 2}
+  isContinue: 1

@@ -9,7 +9,8 @@ namespace HorroHouse
 {
     public class GameManager : Singleton<GameManager>
     {
-        [TextArea(15, 20)]
+        [HideInInspector] public float playerLevel = 99999;
+        [TextArea(5, 20)]
         public string Tasks;
         
         public MainPlayer _PlayerObject;
@@ -19,6 +20,7 @@ namespace HorroHouse
         public Transform[] _RandomPositionsForCarAndTarraceKey;
 
         public bool isPlayerInteracting = false;
+        public bool isCutScenePlaying = false;
 
         public void CollectElement(int type)
         {
@@ -28,6 +30,7 @@ namespace HorroHouse
         private void Start()
         {
             UIManager.Instance._task.text = Tasks;
+            //EventManager.Instance   .eventForTask.CutSceneCompleted?.Invoke();
         }
 
         public void SelectPositionForCarNTarraceKey()
@@ -46,6 +49,11 @@ namespace HorroHouse
 
             }
             Debug.Log("Frame Unlocked");
+        }
+
+        public void CutSceneStatus(bool isTrue)
+        {
+            isCutScenePlaying = isTrue;
         }
     }
 }

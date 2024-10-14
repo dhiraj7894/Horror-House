@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
+  m_Name: Finding Generator
+  m_EditorClassIdentifier: 
+  text: '"I need to find them. But first... the generator. I remember seeing it outside
+    when we arrived."'
+  audioClip: {fileID: 8300000, guid: 1eff43c7d390ad049a1fc4c8d8aec1bd, type: 3}

@@ -30,6 +30,11 @@ public class ObjectPlacer : InteractBase, Interacter
             return;
         if (_player.playerController.interactBase == null)
             _Heighlight.enabled = false;
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            FrameChecker();
+        }
     }
 
     public void Interact()
@@ -61,7 +66,7 @@ public class ObjectPlacer : InteractBase, Interacter
     {
         if (isLocked)
         {
-            EventManager.Instance.PhotoFrameUnlocked();            
+            EventManager.Instance.eventForTaskComplete.FrameUnlocked?.Invoke();
             GarageKey.SetActive(true);
         }
     }

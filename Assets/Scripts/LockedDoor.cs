@@ -5,6 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
+public enum DoorName
+{
+    None,
+    GarageDoor,
+    BasementDoor,
+    TempleDoor,
+    TarraceDoor,
+    BedroomDoor
+}
 public class LockedDoor : InteractBase, Interacter
 {
     [Space(10)]
@@ -24,6 +33,7 @@ public class LockedDoor : InteractBase, Interacter
     }
     public void Interact()
     {
+        if (!isLocked) CheckTheDoorStatus();
         if (_player.GetComponent<ControllerPlayer>()._targetPlace.childCount > 0)
         {
             if (_player.GetComponent<ControllerPlayer>().itemData == _requirements)
@@ -37,9 +47,10 @@ public class LockedDoor : InteractBase, Interacter
                     coll.enabled = false;
                 }
                 LeanTween.delayedCall(1, () => { OpenTheDoor(); });
-
-            }
+                return;
+            }            
         }
+        
     }
     private void Update()
     {

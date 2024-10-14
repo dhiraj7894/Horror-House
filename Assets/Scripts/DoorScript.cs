@@ -53,6 +53,7 @@ public class DoorScript : InteractBase, Interacter
             LeanTween.rotateY(gameObject, initialDoorAngle, doorOpeningTime).setEaseInCirc();
             Debug.Log("OpenDoor");
         }
+        if (!isLocked) CheckTheDoorStatus();
     }
 
     private void Update()

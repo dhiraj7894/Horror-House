@@ -41,13 +41,23 @@ public class Genrator : InteractBase, Interacter
                     // Cutscene for Genrator Power Text
                     CheckFuseConnection();
                 }
+                else
+                {
+                    if (FuseCounts.Count == 0) EventManager.Instance.eventForTask.ClickedGenrator?.Invoke();
+                }
             }
         }
+        else
+        {
+            if(FuseCounts.Count == 0) EventManager.Instance.eventForTask.ClickedGenrator?.Invoke();
+        }
+
+
         if (placementCount >= _requirementPositions.Length)
         {
             isLocked = true;
             GetComponent<Collider>().enabled = false;
-        }
+        }        
     }
     public void Drop()
     {
@@ -58,11 +68,12 @@ public class Genrator : InteractBase, Interacter
     {
         if(FuseCounts.Count == 1)
         {
-            EventManager.Instance.FuseOneConnected();
+            EventManager.Instance.eventForTaskComplete.Fuse1Connected?.Invoke();
+            _UIText = "Now need fuse 2";
         }
         if(FuseCounts.Count == 2)
         {
-            EventManager.Instance.FuseTwoConnected();
+            EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
         }
     }
 }

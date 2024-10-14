@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
+  m_Name: Opened Bedroom
+  m_EditorClassIdentifier: 
+  text: "\"There\u2019s something strange in the master bedroom a puzzle on the floor.
+    I\u2019ll need to remember this.\""
+  audioClip: {fileID: 8300000, guid: 1e6c976e722bea648a1f07fac1be73e6, type: 3}

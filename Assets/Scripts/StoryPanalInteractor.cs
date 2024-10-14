@@ -1,4 +1,4 @@
-using HorroHouse;
+﻿using HorroHouse;
 using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ public class StoryPanalInteractor : InteractBase, Interacter
     [TextArea(3, 10)]
     public string Story;
 
+    public bool isHindiText;
     private MainPlayer _player;
     private void Start()
     {
@@ -20,7 +21,10 @@ public class StoryPanalInteractor : InteractBase, Interacter
     }
     public void Interact()
     {
-        UIManager.Instance._storyPanal.SetData(true, Story);
+        if (isHindiText)
+            UIManager.Instance._storyPanal.SetData(true, "हनुमते माम् रक्षतु। \n" + Story);
+        else
+            UIManager.Instance._storyPanal.SetData(true, Story);
         GetComponent<Collider>().enabled = false;
         _player.enabled = false;
     }
