@@ -25,8 +25,17 @@ public class EventForTask
 {
     #region EventsForStory
     public UnityEvent CutSceneCompleted;
+
+
     public UnityEvent GotFuse1;
     public UnityEvent GotFuse2; 
+    public UnityEvent GotBasementKey;
+    public UnityEvent GotTarraceKey;
+    public UnityEvent GotCarKey;
+    public UnityEvent GotGarageKey;
+    public UnityEvent GotHanumanChalisaBook;
+
+
     public UnityEvent ClickedGenrator;
     public UnityEvent ClickedGarageDoor;
     public UnityEvent ClickedBasementDoor;

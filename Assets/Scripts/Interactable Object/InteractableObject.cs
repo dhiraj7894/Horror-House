@@ -11,7 +11,12 @@ public enum Type
     TempleDoor,
     Fuse1,
     Fuse2,
-    PhotoFrame
+    PhotoFrame,
+    TarraceKey,
+    CarKey,
+    BasementKey,
+    GarageKey,
+    HanumanChalisaBook
 }
 
 public class InteractableObject : InteractBase, Interacter
@@ -73,7 +78,21 @@ public class InteractableObject : InteractBase, Interacter
             case Type.Fuse2:
                 EventManager.Instance.eventForTask.GotFuse2?.Invoke();
                 break;
-
+            case Type.BasementKey:
+                EventManager.Instance.eventForTask.GotBasementKey?.Invoke();
+                break;
+            case Type.TarraceKey:
+                EventManager.Instance.eventForTask.GotTarraceKey?.Invoke();
+                break;
+            case Type.CarKey:
+                EventManager.Instance.eventForTask.GotCarKey?.Invoke();
+                break;
+            case Type.GarageKey:
+                EventManager.Instance.eventForTask.GotGarageKey?.Invoke();
+                break;
+            case Type.HanumanChalisaBook:
+                EventManager.Instance.eventForTask.GotHanumanChalisaBook?.Invoke();
+                break;
         }
     }
 }

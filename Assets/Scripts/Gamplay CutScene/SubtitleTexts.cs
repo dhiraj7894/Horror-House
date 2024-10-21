@@ -8,4 +8,5 @@ public class SubtitleTexts : ScriptableObject
     public AudioClip audioClip;
     public SubtitleTexts nextStep;
     public bool isContinue = false;
+    public bool isCutscene = false;
 }

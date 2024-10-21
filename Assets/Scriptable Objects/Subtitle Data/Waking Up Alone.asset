@@ -17,3 +17,4 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: e326611578a6f0d4c96107c2759bc633, type: 3}
   nextStep: {fileID: 11400000, guid: e96ed9325f15ee64b963f754b7914820, type: 2}
   isContinue: 1
+  isCutscene: 1

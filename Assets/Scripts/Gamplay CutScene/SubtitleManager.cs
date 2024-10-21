@@ -1,8 +1,9 @@
+using HorroHouse;
 using System.Data;
 using TMPro;
 using UnityEngine;
 
-public class SubtitleManager : MonoBehaviour
+public class SubtitleManager : Singleton<SubtitleManager>
 {    
     public AudioSource audioSource;    
     public VoiceLineSO voiceLineSO;
@@ -23,7 +24,7 @@ public class SubtitleManager : MonoBehaviour
 
     private void PlayAudioForCutScene(SubtitleTexts data)
     {
-
+        GameManager.Instance.CutSceneStatus(data.isCutscene);
         dialogueUI.SetActive(true);
         dialogueText.text = data.text;
 

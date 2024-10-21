@@ -33,7 +33,7 @@ public class LockedDoor : InteractBase, Interacter
     }
     public void Interact()
     {
-        if (!isLocked) CheckTheDoorStatus();
+        
         if (_player.GetComponent<ControllerPlayer>()._targetPlace.childCount > 0)
         {
             if (_player.GetComponent<ControllerPlayer>().itemData == _requirements)
@@ -50,7 +50,7 @@ public class LockedDoor : InteractBase, Interacter
                 return;
             }            
         }
-        
+        if (!isLocked) CheckTheDoorStatus();
     }
     private void Update()
     {

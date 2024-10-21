@@ -9,9 +9,9 @@ namespace HorroHouse
 {
     public class GameManager : Singleton<GameManager>
     {
-        [HideInInspector] public float playerLevel = 99999;
-        [TextArea(5, 20)]
-        public string Tasks;
+        [HideInInspector] public float playerLevel = 99999;        
+        public string[] Tasks;
+        public int currentTask;
         
         public MainPlayer _PlayerObject;
         public int element;
@@ -29,8 +29,12 @@ namespace HorroHouse
 
         private void Start()
         {
-            UIManager.Instance._task.text = Tasks;
-            //EventManager.Instance   .eventForTask.CutSceneCompleted?.Invoke();
+            UIManager.Instance._task.text = Tasks[currentTask];
+            EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
+        }
+        private void Update()
+        {
+            MouseCursorUpdate();
         }
 
         public void SelectPositionForCarNTarraceKey()
@@ -54,6 +58,14 @@ namespace HorroHouse
         public void CutSceneStatus(bool isTrue)
         {
             isCutScenePlaying = isTrue;
+        }
+
+        public void MouseCursorUpdate()
+        {
+            if (Input.GetMouseButtonDown(0))
+                Cursor.lockState = CursorLockMode.Locked;
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
+                Cursor.lockState = CursorLockMode.None;
         }
     }
 }

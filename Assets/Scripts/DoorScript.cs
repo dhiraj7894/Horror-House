@@ -39,6 +39,14 @@ public class DoorScript : InteractBase, Interacter
 
     public void Interact()
     {
+        try
+        {
+            GetComponent<DoorCustomVOPlayer>().PlaySound();
+        }
+        catch
+        {
+
+        }
         if (_UIText.Contains("Open Door"))
             _UIText = "Close Door";
         else _UIText = "Open Door";

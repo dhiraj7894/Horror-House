@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
-  m_Name: Searching for Friends Door 3
+  m_Name: 0000 Dummy
   m_EditorClassIdentifier: 
-  text: '"None of them are here... I should find the caretaker. She might know something."'
-  audioClip: {fileID: 8300000, guid: 1a43fff048e2dc34b831e0cd44a2ca0a, type: 3}
+  text: This is dummy text
+  audioClip: {fileID: 8300000, guid: 1c724bcf00fdf914ba0751c3abc65c9f, type: 3}
   nextStep: {fileID: 0}
   isContinue: 0
   isCutscene: 0

@@ -13,7 +13,7 @@ public class Introduction : QuestStep
     private void Start()
     {
         videoPlayer.playbackSpeed = playbackSpeed;
-        GameManager.Instance.isCutScenePlaying = true;
+        GameManager.Instance.CutSceneStatus(true);
         videoPlayer.Play();
         videoPlayer.loopPointReached += StartDialouge;
     }

@@ -49,6 +49,7 @@ public class Locker : InteractBase, Interacter
         lockerCamera.SetActive(true);
         player.playerCamera.SetActive(false);
         isInteracted = true;
+        player.torch.SetActive(false);
         if (!isOpend)
         {
             foreach (Collider col in cols)
@@ -75,7 +76,7 @@ public class Locker : InteractBase, Interacter
     {
         SelectWheel();
         RotateWheel();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             MatchThePassword();
             player.playerCamera.SetActive(true);
@@ -83,6 +84,7 @@ public class Locker : InteractBase, Interacter
             player.enabled = true;
             player.playerController.enabled = true;
             isInteracted = false;
+            player.torch.SetActive(true);
             if (!isOpend)
             {
                 foreach (Collider col in cols)

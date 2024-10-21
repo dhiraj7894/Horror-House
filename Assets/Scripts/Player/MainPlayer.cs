@@ -25,6 +25,7 @@ namespace HorroHouse.Player
         public GameObject playerCamera;
         public Transform playerGFXTransform;
         public Rigidbody rb;
+        public GameObject torch;
         
 
         [Space(10)]
@@ -51,8 +52,7 @@ namespace HorroHouse.Player
         //public PlayerStats stats;
         private void Start()
         {
-            StateInitialize();
-            Cursor.lockState = CursorLockMode.Locked;
+            StateInitialize();            
         }
         public void StateInitialize()
         {
@@ -63,6 +63,8 @@ namespace HorroHouse.Player
         }
         private void Update()
         {
+            if (GameManager.Instance.isCutScenePlaying)
+                return;
             _currentState.ManageInput();
             _currentState.LogicUpdateState();
         }
