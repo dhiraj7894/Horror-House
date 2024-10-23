@@ -19,12 +19,14 @@ public class SubtitleManager : Singleton<SubtitleManager>
     public void GetSubtitleTextsData(SubtitleTexts data)
     {
         PlayAudioForCutScene(data);        
+        //Debug.Log($"Data executed : {data.text}");
     }
 
 
     private void PlayAudioForCutScene(SubtitleTexts data)
     {
         GameManager.Instance.CutSceneStatus(data.isCutscene);
+        if (data.isCutscene) LeanTween.rotate(GameManager.Instance._PlayerObject.gameObject, data.playerRotation, .3f).setEaseInCubic();
         dialogueUI.SetActive(true);
         dialogueText.text = data.text;
 
@@ -40,6 +42,7 @@ public class SubtitleManager : Singleton<SubtitleManager>
 
     private void StopPlaying()
     {
+        GameManager.Instance.CutSceneStatus(false);
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         audioSource.Stop();

@@ -14,6 +14,7 @@ namespace HorroHouse
         public int currentTask;
         
         public MainPlayer _PlayerObject;
+        public CaretakerManager _CaretakerManager;
         public int element;
         public GameObject _TarraceKey;
         public GameObject _CarKey;

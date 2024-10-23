@@ -7,6 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class DoorScript : InteractBase, Interacter
 {
+
     private MainPlayer _player;
 
     public Transform interactableUI;
@@ -54,12 +55,12 @@ public class DoorScript : InteractBase, Interacter
         if (_UIText.Contains("Close Door"))
         {
             LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc();
-            Debug.Log("OpenDoor");
+            unityEvent?.Invoke();
         }
         else if(_UIText.Contains("Open Door"))
         {
             LeanTween.rotateY(gameObject, initialDoorAngle, doorOpeningTime).setEaseInCirc();
-            Debug.Log("OpenDoor");
+            
         }
         if (!isLocked) CheckTheDoorStatus();
     }

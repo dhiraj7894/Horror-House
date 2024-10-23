@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Windows;
 
 namespace HorroHouse.Player
 {
@@ -46,6 +47,7 @@ namespace HorroHouse.Player
         public bool isInCutScene = false;
         public bool isDead;
         public bool isInLift = false;
+        public bool isHided = false;
 
         
         //[Space(10)]
@@ -63,8 +65,12 @@ namespace HorroHouse.Player
         }
         private void Update()
         {
-            if (GameManager.Instance.isCutScenePlaying)
+            if (GameManager.Instance.isCutScenePlaying || isHided)
+            {
+                anim.SetFloat(AnimHash.SPEED, 0);
                 return;
+            }
+                
             _currentState.ManageInput();
             _currentState.LogicUpdateState();
         }

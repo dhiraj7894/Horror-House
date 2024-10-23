@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractBase : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InteractBase : MonoBehaviour
     public bool isLocked = false;
     public string _UIText;
     public string _LockedText;
+    public UnityEvent unityEvent;
 
     public void DisableLock()
     {

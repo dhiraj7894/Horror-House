@@ -26,7 +26,7 @@ public class Cupboard : InteractBase, Interacter
     {
         if (isHideable)
         {
-            HideInCupboard();
+            HideInCupboard();            
         }
         else
         {
@@ -53,6 +53,10 @@ public class Cupboard : InteractBase, Interacter
             _Player.transform.parent = hidePosition;
             LeanTween.moveLocal(_Player.gameObject, new Vector3(0, 0, 0), time).setOnComplete(() => {
                 LeanTween.rotateLocal(_Player.gameObject, playerRotationDiretion, time / 2);
+                // Play only if caretaker encounter is 1st time and you have choosen to hide
+                LeanTween.delayedCall(.1f, () => unityEvent?.Invoke());
+                _Player.isHided = true;
+                _Player.torch.SetActive(false);
                 foreach (Collider c in col)
                 {
                     c.enabled = true;
@@ -70,7 +74,8 @@ public class Cupboard : InteractBase, Interacter
             }
             LeanTween.move(_Player.gameObject, exitPosition.position, time).setOnComplete(() =>
             {
-
+                _Player.torch.SetActive(true);
+                _Player.isHided = false;
                 foreach (Collider c in col)
                 {
                     c.enabled = true;

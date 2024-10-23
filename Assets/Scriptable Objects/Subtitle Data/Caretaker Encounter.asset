@@ -15,3 +15,7 @@ MonoBehaviour:
   text: "\"I\u2019ve been looking for you. My friends are missing. Do you know where
     they are?\""
   audioClip: {fileID: 8300000, guid: 3744a0f29f5cf42448b8b4560c9199c8, type: 3}
+  nextStep: {fileID: 11400000, guid: f4a5adac4a07bf645b383376178f503b, type: 2}
+  isContinue: 1
+  playerRotation: {x: 0, y: 90, z: 0}
+  isCutscene: 1

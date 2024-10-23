@@ -8,5 +8,6 @@ public class SubtitleTexts : ScriptableObject
     public AudioClip audioClip;
     public SubtitleTexts nextStep;
     public bool isContinue = false;
+    public Vector3 playerRotation;
     public bool isCutscene = false;
 }
