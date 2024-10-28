@@ -13,7 +13,7 @@ public class CaretakerManager : MonoBehaviour
     public CaretakerMovement MOVEMENT;
     public CaretakerAction ACTION;
     #endregion
-    public Animation anim;
+    public Animator anim;
     public NavMeshAgent agent;
 
     [Space(5)]
