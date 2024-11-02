@@ -3,7 +3,47 @@ guid: b508ba028a8b68941b7086676d1704df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default
+    second: {fileID: 2100000, guid: 7341f49fd9661a542a0d0a7d72392b0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorBor
+    second: {fileID: 2100000, guid: 290b9df4b422d484dafba21aa3f4b16b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: d3957fd669f4feb44a53a8b293489dc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Horror House
+    second: {fileID: 2100000, guid: 409b3b9ca3814744e8c1a247ea299358, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: c8daad2c349ff1941921671faa9c2ac7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stairs
+    second: {fileID: 2100000, guid: b257acfbf9c46d94f92c6f180c5cee75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Temple Wall
+    second: {fileID: 2100000, guid: a3a3e9aa8abcf3a479c83e0daad8046c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls
+    second: {fileID: 2100000, guid: 41cb85b7c91c8914f919191ffa1fcb36, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

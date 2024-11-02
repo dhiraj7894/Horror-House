@@ -3,7 +3,67 @@ guid: 7e60f1cc900c31d4ab07ff68ca37bc1f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling
+    second: {fileID: 2100000, guid: 6ae13e4ce5239b8429ff464adb4d1357, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default
+    second: {fileID: 2100000, guid: 7ac0ae1abfa4afe478fcf0f2c075fdc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door Frame
+    second: {fileID: 2100000, guid: b31f16bfd790ddb4195ace1b95ea38ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 4cb73b8b139505648b82e4c9c7d47a89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_1
+    second: {fileID: 2100000, guid: bb683b20d5c8a1443b571052b25d0124, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lift Indicator
+    second: {fileID: 2100000, guid: e0e1c21c84eeae944be95d910708b455, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outside Wall
+    second: {fileID: 2100000, guid: af791c0f7007d724d99edb702f5c9e5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 0a9118b17a5ad384bb82f56ec1b9f1db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall 1
+    second: {fileID: 2100000, guid: 6a1a42cb8f205a649a5b19d9a92147d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall 2
+    second: {fileID: 2100000, guid: 312a859f180266e4d8bfec082625e413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall 3
+    second: {fileID: 2100000, guid: 7aa4706b893744b41bdae49835d6cb3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window Frame
+    second: {fileID: 2100000, guid: dcbe6a5a61eb4624a967f340463c3166, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
