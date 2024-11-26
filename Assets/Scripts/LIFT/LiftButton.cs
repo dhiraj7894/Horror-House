@@ -39,10 +39,10 @@ public class LiftButton : InteractBase, Interacter
 
     public void OffOtherCollider()
     {
-        foreach (Collider col in otherCol)
+       /* foreach (Collider col in otherCol)
         {
             col.isTrigger = false;
-        }
+        }*/
     }
 
     

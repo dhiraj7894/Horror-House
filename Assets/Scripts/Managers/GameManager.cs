@@ -31,7 +31,7 @@ namespace HorroHouse
         private void Start()
         {
             UIManager.Instance._task.text = Tasks[currentTask];
-            EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
+            //EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
         }
         private void Update()
         {
