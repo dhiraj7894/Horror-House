@@ -27200,6 +27200,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelDesign
       objectReference: {fileID: 0}
+    - target: {fileID: 7292663542080007746, guid: d634451c069ec8647a2faccb2b65d2d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292663542080007746, guid: d634451c069ec8647a2faccb2b65d2d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292663542080007746, guid: d634451c069ec8647a2faccb2b65d2d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292663542080007746, guid: d634451c069ec8647a2faccb2b65d2d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292663542080007746, guid: d634451c069ec8647a2faccb2b65d2d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7310262761789683789, guid: d634451c069ec8647a2faccb2b65d2d1,
         type: 3}
       propertyPath: m_StaticEditorFlags
