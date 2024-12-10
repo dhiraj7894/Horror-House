@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Ink.Runtime;
+using HorroHouse.Player;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
@@ -18,7 +19,7 @@ public class DialogueManager : Singleton<DialogueManager>
     public TextMeshProUGUI dialogueText;
 
     public List<GameObject> uIToDesableOnDialogue = new List<GameObject>();
-
+    public MainPlayer mainPlayer;
 
     [Header("Dialouge Audio Elements")]
     public VoiceLineSO voiceLineSO;
@@ -33,9 +34,12 @@ public class DialogueManager : Singleton<DialogueManager>
     public Story currentStory;
     public bool isDialoguePlaying { get; private set; }
     public bool isFullScreen = false;
+    
     [Header("Quest Objects")]
     public QuestStep step;
     Coroutine displayLineCoroutine;
+
+
 
     private void Start()
     {
@@ -234,7 +238,8 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             step.FinishedQuestStep();
         }
-        EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
+        // Let Player stand
+        mainPlayer.anim.Play(AnimHash.GettingUp);
     }
 
 

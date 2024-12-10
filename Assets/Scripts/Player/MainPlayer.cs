@@ -86,5 +86,10 @@ namespace HorroHouse.Player
         {
             isCooldown = true;
         }
+
+        public void CharacterStands()
+        {
+            LeanTween.delayedCall(.5f, () => EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke());
+        }
     }
 }

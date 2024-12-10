@@ -10,6 +10,7 @@ public class Introduction : QuestStep
     public TextAsset inkJSON;
     public float playbackSpeed = 1;
     public VideoPlayer videoPlayer;
+    public GameObject cutSceneScreen;
     private void Start()
     {
         videoPlayer.playbackSpeed = playbackSpeed;
@@ -21,6 +22,7 @@ public class Introduction : QuestStep
     private void StartDialouge(VideoPlayer source)
     {
         videoPlayer.Stop();
+        cutSceneScreen.SetActive(false);
         DialogueManager.Instance.EnterFullScreenDialogueMode(inkJSON, this);
     }
 

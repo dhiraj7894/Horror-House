@@ -4,14 +4,15 @@ using UnityEngine;
 using HorroHouse;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.InputSystem;
 
 public class QuestManager : Singleton<QuestManager>
 {
-    [SerializeField] private Dictionary<string, Quest> questMap;
+    private Dictionary<string, Quest> questMap;
+
     private void Awake()
     {
         questMap = CreateQuestMap();
-
     }
     private void Start()
     {
@@ -21,31 +22,32 @@ public class QuestManager : Singleton<QuestManager>
         }
     }
     private Dictionary<string, Quest> CreateQuestMap()
-    {
+    {        
         QuestSystemSO[] allQuest = Resources.LoadAll<QuestSystemSO>("Quests");
 
         Dictionary<string, Quest> idToQuestMap = new Dictionary<string, Quest>();
         foreach (QuestSystemSO questInfo in allQuest)
-        {
-            if (idToQuestMap.ContainsKey(questInfo.id))
+        {            
+            if (idToQuestMap.ContainsKey(questInfo.Id))
             {
-                Debug.Log($"Found a duble key with id of : {questInfo.id}");
+                Debug.LogError($"Duplicate Quest ID: {questInfo.Id}. Skipping addition.");
+                continue;
 
             }
-            idToQuestMap.Add(questInfo.id, new Quest(questInfo));
-
-        }
+            idToQuestMap.Add(questInfo.Id, new Quest(questInfo)); 
+            
+        }        
         return idToQuestMap;
     }
 
     private Quest GetQuestByID(string id)
     {
         Quest quest = questMap[id];
+       
         if (quest == null)
         {
-            Debug.Log($"ID NOT FOUND IN QUEST MAP {id}");
+            Debug.Log($"ID does not exist in quest map : {id}");
         }
-
         return quest;
     }
 
@@ -79,7 +81,7 @@ public class QuestManager : Singleton<QuestManager>
         }
         foreach (QuestSystemSO preRequirementInfo in quest.info.questRequirement)
         {
-            if (GetQuestByID(preRequirementInfo.id).state != QuestState.FINISHED)
+            if (GetQuestByID(preRequirementInfo.Id).state != QuestState.FINISHED)
             {
                 meetRequirement = false;
             }
@@ -95,8 +97,7 @@ public class QuestManager : Singleton<QuestManager>
             //Debug.Log($"WHY ?");
             if (quest.state == QuestState.REQUIREMENT_NOT_MET && CheckRequirementMet(quest))
             {
-
-                ChangeQuestState(quest.info.id, QuestState.CAN_START);
+                ChangeQuestState(quest.info.Id, QuestState.CAN_START);
             }
         }
     }
@@ -106,7 +107,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         Quest quest = GetQuestByID(id);
         quest.SpwanCurrentQuestStep(this.transform);
-        ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
+        ChangeQuestState(quest.info.Id, QuestState.IN_PROGRESS);
     }
     private void AdvacneQuest(string id)
     {
@@ -118,7 +119,7 @@ public class QuestManager : Singleton<QuestManager>
         }
         else
         {
-            ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
+            ChangeQuestState(quest.info.Id, QuestState.CAN_FINISH);
         }
 
     }
@@ -135,6 +136,6 @@ public class QuestManager : Singleton<QuestManager>
         //Add Object reward to player invetory 
         //Add In Jelly Currency as reward
         Debug.Log($"<color=green>Jelly Reward Added to you inventory</color>");
-        ChangeQuestState(quest.info.id, QuestState.FINISHED);
+        ChangeQuestState(quest.info.Id, QuestState.FINISHED);
     }
 }

@@ -19,7 +19,7 @@ public class QuestPoint : MonoBehaviour
 
     private void Awake()
     {
-        questId = questInfoForPoint.id;
+        questId = questInfoForPoint.Id;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -48,7 +48,7 @@ public class QuestPoint : MonoBehaviour
 
     public void QuestStateChange(Quest quest)
     {
-        if (quest.info.id.Equals(questId))
+        if (quest.info.Id.Equals(questId))
         {
             currentQuestState = quest.state;
             //QuestIcon.SetState(currentQuestState, isStartPoint, isFinishPoint);

@@ -39,7 +39,7 @@ public class Quest : MonoBehaviour
         if (questStepPrefab != null)
         {
             QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
-            questStep.InitQuestStep(info.id);
+            questStep.InitQuestStep(info.Id);
         }
     }
 
@@ -52,7 +52,7 @@ public class Quest : MonoBehaviour
         }
         else
         {
-            Debug.Log($"<color=red>No current Step presnt for Quest ID = {info.id} at location of {currentQuestStepIndex}</color>");
+            Debug.Log($"<color=red>No current Step presnt for Quest ID = {info.Id} at location of {currentQuestStepIndex}</color>");
         }
         return questStepPrefab;
     }

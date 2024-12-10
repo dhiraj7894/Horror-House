@@ -35,7 +35,7 @@ public class PerformanceTests : MonoBehaviour {
             int animId = animIds[go];
             if (animId >= 0){
                 if (debug)
-                    Debug.Log("canceling id:" + animId);
+                    Debug.Log("canceling Id:" + animId);
 
                 LeanTween.cancel(animId);
             }

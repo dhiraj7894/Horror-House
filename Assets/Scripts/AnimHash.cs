@@ -9,6 +9,7 @@ public class AnimHash
     public const string LIFT = "Lift";
     public const string FlyingGhost = "FlyingGhost";
     public const string Caretaker = "Caretaker";
+    public const string GettingUp = "Getting Up";
 }
 public class INKTags
 {

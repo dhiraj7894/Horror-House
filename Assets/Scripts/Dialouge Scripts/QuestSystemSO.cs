@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuestSystemSO", menuName = "HH/QuestInfoSO")]
 public class QuestSystemSO : ScriptableObject
 {
-    [SerializeField] public string id { get; private set; }
+    public string Id { get; private set; }
 
     [Header("General")]
     public string displayQuestName;
@@ -24,7 +22,7 @@ public class QuestSystemSO : ScriptableObject
     private void OnValidate()
     {
 #if UNITY_EDITOR
-        id = this.name;
+        Id = this.name;
         UnityEditor.EditorUtility.SetDirty(this);
 #endif
     }

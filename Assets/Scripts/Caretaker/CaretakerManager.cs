@@ -1,45 +1,52 @@
 using HorroHouse.Player;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CaretakerManager : MonoBehaviour
 {
-    #region STATES
-    CaretakerBase _currentState;
-    public CaretakerIdle IDLE;
-    public CaretakerMovement MOVEMENT;
-    public CaretakerAction ACTION;
-    #endregion
+
     public Animator anim;
     public NavMeshAgent agent;
+    public Transform targetPosition;
 
     [Space(5)]
     public float speed;
-    private void Start()
-    {
-        StateInitialize();
-    }
-    public void StateInitialize()
-    {
-        IDLE = new CaretakerIdle(this);
-        MOVEMENT = new CaretakerMovement(this);
-        ACTION = new CaretakerAction(this);
-        _currentState = IDLE;
-        _currentState.EnterState();
-    }
 
-    public void ChangeCurrentState(CaretakerBase newState)
-    {
-        _currentState.ExitState();
-        _currentState = newState;
-        _currentState.EnterState();
+    public bool isChase = false;
+    private void Start()
+    {        
     }
 
     private void Update()
-    {        
-        _currentState.LogicUpdateState();
+    {
+        InputPosition();
+        CharacterAnimation();
+    }
+
+    public void InputPosition()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            agent.SetDestination(CaretakerWayPointBank.Instance.GetWaypoint().position);   
+        }
+    }
+
+    public void CharacterAnimation()
+    {
+        if(agent.velocity.magnitude!= 0f){
+            anim.SetFloat(AnimHash.SPEED, 1);
+        }
+        else
+        {
+            anim.SetFloat(AnimHash.SPEED, 0);
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+        if (anim.GetFloat(AnimHash.SPEED) != 0)
+        {
+            agent.speed = (anim.deltaPosition / Time.deltaTime).magnitude / speed;
+        }
     }
 }
