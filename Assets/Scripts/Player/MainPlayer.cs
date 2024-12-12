@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Windows;
+using UnityEngine.Animations.Rigging;
 
 namespace HorroHouse.Player
 {
@@ -15,43 +16,49 @@ namespace HorroHouse.Player
 
         #endregion
 
-        [Range(0, 1)] public float playerSpeedDamp = 0.1f;
-        [Range(0, 1)] public float turnSmoothDamp = 0.1f;
+        #region Player Settings
+        [Header("Movement Settings")]
+        [Range(0, 1)] public float playerSpeedDamp = 0.1f; // Damping factor for player speed
+        [Range(0, 1)] public float turnSmoothDamp = 0.1f; // Damping factor for smooth turning
+        public float mouseSensitivity = 1f; // Mouse sensitivity for camera movement
+        public float playerSpeed = 15; // Base speed of the player
+        public float sprintSpeedMultiplier = 4; // Speed multiplier when sprinting
+        public float gravityMultiplier = 3.0f; // Multiplier for gravity effect
 
-        [Space(10)]
-        public CharacterController controller;
-        public ControllerPlayer playerController;
-        public Animator anim;
-        public Transform cameraTransform;
-        public GameObject playerCamera;
-        public Transform playerGFXTransform;
-        public Rigidbody rb;
-        public GameObject torch;
-        
+        [Header("Stamina Settings")]
+        public float currentStamina = 10; // Current stamina level of the player
+        public float staminaSpeed = 5; // Rate at which stamina is consumed or recovered
 
-        [Space(10)]
-        public float mouseSensitivity = 1f;
-        public float currentStamina = 10;
-        public float staminaSpeed = 5;
-        public float playerSpeed = 15;
-        public float sprintSpeedMultiplier = 4;
-        public float gravityMultiplier = 3.0f;
-        public float maxHeadRotation = 50;
-        public float minHeadRotation = -50;
+        [Header("Head Rotation Limits")]
+        public float maxHeadRotation = 50; // Maximum head rotation angle upwards
+        public float minHeadRotation = -50; // Maximum head rotation angle downwards
+        #endregion
+
+        #region References
+        [Header("Player References")]
+        public CharacterController controller; // Reference to the character controller component
+        public ControllerPlayer playerController; // Custom controller script for handling player input
+        public Animator anim; // Animator for controlling player animations
+        public Transform cameraTransform; // Transform of the player camera
+        public GameObject playerCamera; // Main camera object
+        public Transform playerGFXTransform; // Transform for the player graphical representation
+        public Rigidbody rb; // Rigidbody for physics interactions
+        public GameObject torch; // Reference to the torch object
+        public RigBuilder rigbuilder; // IK constraint for the rigbuilder
+        #endregion
+
+        #region Player State Flags
+        [Header("State Flags")]
+        public bool isCooldown; // Indicates if the player is in cooldown state
+        public bool isStaminaCoolDown; // Indicates if stamina is in cooldown
+        public bool isUsableStaminaRestored; // Indicates if usable stamina has been restored
+        public bool isInCutScene; // Indicates if the player is in a cutscene
+        public bool isDead; // Indicates if the player is dead
+        public bool isInLift; // Indicates if the player is inside a lift
+        public bool isHided; // Indicates if the player is hidden
+        #endregion
 
 
-        [Space(10)]
-        public bool isCooldown;
-        public bool isStaminaCoolDown = false;
-        public bool isUsableStaminaRestored = false;
-        public bool isInCutScene = false;
-        public bool isDead;
-        public bool isInLift = false;
-        public bool isHided = false;
-
-        
-        //[Space(10)]
-        //public PlayerStats stats;
         private void Start()
         {
             StateInitialize();            
@@ -90,6 +97,15 @@ namespace HorroHouse.Player
         public void CharacterStands()
         {
             LeanTween.delayedCall(.5f, () => EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke());
+            rigbuilder.layers[0].active = true;
+            torch.SetActive(true);
+        }
+
+        public void TwoBoneIKWeight()
+        {
+            Debug.Log("TwoBoneIKWeight");
+            torch.SetActive(false);
+            rigbuilder.layers[0].active = false;
         }
     }
 }

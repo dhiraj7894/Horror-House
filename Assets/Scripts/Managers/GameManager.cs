@@ -2,6 +2,7 @@ using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
@@ -9,17 +10,25 @@ namespace HorroHouse
 {
     public class GameManager : Singleton<GameManager>
     {
-        [HideInInspector] public float playerLevel = 99999;        
+        // Player-related variables
+        [HideInInspector] public float playerLevel = 99999;
+        public MainPlayer _PlayerObject;
+
+        // Task-related variables
         public string[] Tasks;
         public int currentTask;
-        
-        public MainPlayer _PlayerObject;
-        public CaretakerManager _CaretakerManager;
-        public int element;
+        public TextMeshProUGUI progressText;
+
+        // Key-related variables
         public GameObject _TarraceKey;
         public GameObject _CarKey;
         public Transform[] _RandomPositionsForCarAndTarraceKey;
 
+        // Manager-related variables
+        public CaretakerManager _CaretakerManager;
+        public int element;
+
+        // Interaction and cutscene states
         public bool isPlayerInteracting = false;
         public bool isCutScenePlaying = false;
 
@@ -30,7 +39,6 @@ namespace HorroHouse
 
         private void Start()
         {
-            UIManager.Instance._task.text = Tasks[currentTask];
             //EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
         }
         private void Update()
@@ -67,6 +75,12 @@ namespace HorroHouse
                 Cursor.lockState = CursorLockMode.Locked;
             if (Input.GetKeyDown(KeyCode.LeftAlt))
                 Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void SetCurrentTask(int taskNumber)
+        {
+            currentTask = taskNumber;
+            UIManager.Instance._task.text = $"{Tasks[taskNumber]}";
         }
     }
 }

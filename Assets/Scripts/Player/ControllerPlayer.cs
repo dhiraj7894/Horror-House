@@ -62,7 +62,23 @@ namespace HorroHouse.Player
                     if (hit.transform.GetComponent<InteractBase>())
                     {
                         InteractBase interactBase = hit.transform.GetComponent<InteractBase>();
-                        if(!interactBase.isLocked && itemData) {
+
+
+
+                        if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+                        UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
+                        inT.Interact();
+                        if (_targetPlace.childCount <= 0)
+                        {
+                            Debug.Log("Child Count Null");
+                            UIManager.Instance.SetInHandItemString();
+                        }
+
+
+
+
+
+                        /*if(!interactBase.isLocked && itemData) {
                             if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                             UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                             inT.Interact();
@@ -82,8 +98,8 @@ namespace HorroHouse.Player
                                 Debug.Log("Child Count Null");
                                 UIManager.Instance.SetInHandItemString();
                             }
-                        }
-                        
+                        }*/
+
                     }                    
                 }
             }

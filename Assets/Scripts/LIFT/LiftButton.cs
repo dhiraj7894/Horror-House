@@ -12,6 +12,7 @@ public class LiftButton : InteractBase, Interacter
     public Collider[] otherCol;
     public GameObject LiftHighlight;
 
+    public int clickCount = 0;
     private void Start()
     {
     }
@@ -23,18 +24,27 @@ public class LiftButton : InteractBase, Interacter
 
     public void Interact()
     {
-        lift.SetHeight(_floor);
-        OffOtherCollider();
-        lift.col = col;
-        if (isInsidesButton)
+        if(clickCount < 1)
         {
-            lift.player.controller.enabled = false;
-            lift.player.gameObject.layer = 0;
+            unityEvent?.Invoke();
+            clickCount++;
         }
-        LiftHighlight.SetActive(true);
-        LeanTween.delayedCall(.1f, () => {
-            LiftHighlight.SetActive(false);
-        });
+        if (!isLocked)
+        {
+            lift.SetHeight(_floor);
+            OffOtherCollider();
+            lift.col = col;
+            if (isInsidesButton)
+            {
+                lift.player.controller.enabled = false;
+                lift.player.gameObject.layer = 0;
+            }
+            LiftHighlight.SetActive(true);
+            LeanTween.delayedCall(.1f, () => {
+                LiftHighlight.SetActive(false);
+            });
+        }
+        
     }
 
     public void OffOtherCollider()
