@@ -79,7 +79,12 @@ namespace HorroHouse
 
         public void SetCurrentTask(int taskNumber)
         {
+            if (currentTask > taskNumber)
+                return;
+
             currentTask = taskNumber;
+            //Audio to be played
+            UIManager.Instance._taskAnimator.Play("TaskUpdated");
             UIManager.Instance._task.text = $"{Tasks[taskNumber]}";
         }
     }

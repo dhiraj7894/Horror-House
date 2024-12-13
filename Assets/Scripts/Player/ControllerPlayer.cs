@@ -65,7 +65,7 @@ namespace HorroHouse.Player
 
 
 
-                        if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+                        //if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                         UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                         inT.Interact();
                         if (_targetPlace.childCount <= 0)
@@ -121,14 +121,14 @@ namespace HorroHouse.Player
                     interactBase = newInteractBase; // Set the new interactBase
                     
                     // Disable the previous interactBase's highlight, if it's different
-                    if (previousInteractBase && previousInteractBase != interactBase)
+                   /* if (previousInteractBase && previousInteractBase != interactBase)
                     {
                         if (previousInteractBase._Heighlight) previousInteractBase._Heighlight.enabled = false;                        
-                    }
+                    }*/
                     
 
                     // Enable the new interactBase's highlight
-                    if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
+                    //if (interactBase._Heighlight) interactBase._Heighlight.enabled = true;
 
                     // Update interaction UI
                     if (!interactBase.isLocked)
@@ -148,7 +148,7 @@ namespace HorroHouse.Player
             else if (interactBase)
             {
                 // No hit, disable the current interactBase's highlight
-                if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
+               // if (interactBase._Heighlight) interactBase._Heighlight.enabled = false;
                 UIManager.Instance._interactionUI._canvasGroup.alpha = 0;
                 interactBase = null;                
             }

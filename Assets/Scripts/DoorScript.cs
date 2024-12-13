@@ -40,6 +40,9 @@ public class DoorScript : InteractBase, Interacter
 
     public void Interact()
     {
+        if (isLocked)
+            return;
+
         try
         {
             GetComponent<DoorCustomVOPlayer>().PlaySound();
@@ -72,6 +75,11 @@ public class DoorScript : InteractBase, Interacter
             return;
         if (_player.playerController.interactBase == null)
             _Heighlight.enabled = false;
+    }
+
+    public void UnlockThisDoor()
+    {
+        isLocked = false;
     }
 
 

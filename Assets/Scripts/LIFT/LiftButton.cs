@@ -39,10 +39,12 @@ public class LiftButton : InteractBase, Interacter
                 lift.player.controller.enabled = false;
                 lift.player.gameObject.layer = 0;
             }
-            LiftHighlight.SetActive(true);
+
+            /// Heighlight Code
+            /*LiftHighlight.SetActive(true);
             LeanTween.delayedCall(.1f, () => {
                 LiftHighlight.SetActive(false);
-            });
+            });*/
         }
         
     }

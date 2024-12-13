@@ -9,6 +9,8 @@ namespace HorroHouse
     {
         public TextMeshProUGUI _itemInHand;
         public TextMeshProUGUI _task;
+        public Animator _taskAnimator;
+
         public InteractionUI _interactionUI;
         public StoryPanal _storyPanal;
 
