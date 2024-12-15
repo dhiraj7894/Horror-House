@@ -24,7 +24,7 @@ public class LiftButton : InteractBase, Interacter
 
     public void Interact()
     {
-        if(clickCount < 1)
+        if(clickCount <= 0)
         {
             unityEvent?.Invoke();
             clickCount++;

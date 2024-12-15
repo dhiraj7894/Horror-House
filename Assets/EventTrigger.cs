@@ -27,21 +27,21 @@ public class EventTrigger : MonoBehaviour
         }
     }
 
-    public void JumpTowardPlayer(Transform item)
+    public void LookTowardPlayer(Transform item)
     {
-        item.gameObject.SetActive(true);
-        LeanTween.move(item.gameObject, new Vector3(mainPlayer.transform.position.x, item.position.y, mainPlayer.transform.position.z), time).setEase(type).setOnComplete(() => {
-            item.gameObject.SetActive(false);
+        //item.gameObject.SetActive(true);
+        LeanTween.move(item.gameObject, rotationAngle, time).setEase(type).setOnComplete(() => {
+            //item.gameObject.SetActive(false);
         });
     }
 
     public void LeanToPlayer(Transform item)
-    {
-        item.gameObject.SetActive(true);
+    {        
         LeanTween.rotate(item.gameObject, rotationAngle, time).setEase(type).setOnComplete(() => {
-            item.gameObject.SetActive(false);
+            
         }); 
     }
+
 
     public void CaretakerEncounter(float delay)
     {

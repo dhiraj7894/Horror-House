@@ -1,5 +1,6 @@
 using HorroHouse;
 using HorroHouse.Player;
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ public class Genrator : InteractBase, Interacter
                     obj.parent = _requirementPositions[item.id];
                     obj.localPosition = Vector3.zero;
                     obj.localRotation = Quaternion.identity;
+                    obj.localScale = new Vector3(40,40,40);
                     _indicatorLight[item.id].material.SetColor("_EmissionColor", colour);
                     FuseCounts.Add(obj);
                     placementCount++;
@@ -70,10 +72,12 @@ public class Genrator : InteractBase, Interacter
         {
             EventManager.Instance.eventForTaskComplete.Fuse1Connected?.Invoke();
             _UIText = "Now need fuse 2";
+            // Audio play for genrator start and loop but not fully start
         }
-        if(FuseCounts.Count == 2)
+        if (FuseCounts.Count == 2)
         {
             EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
+            // Audio play for genrator start and loop complete start
         }
     }
 }

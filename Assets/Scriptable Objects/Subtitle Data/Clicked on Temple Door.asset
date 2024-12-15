@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Clicked on Temple Door
   m_EditorClassIdentifier: 
-  text: There might be... somewhere... a Hanuman Chalisa book!
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: f06fe6e763e183e4787cd47fb001dc9b, type: 3}
-  nextStep: {fileID: 0}
-  isContinue: 0
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
+  isCutscene: 0

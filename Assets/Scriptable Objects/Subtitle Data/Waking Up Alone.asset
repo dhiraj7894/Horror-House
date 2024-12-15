@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Waking Up Alone
   m_EditorClassIdentifier: 
-  text: "\"I don\u2019t know how long I was out after the power went out. When I
-    woke up, I was alone. My friends gone.\""
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: e326611578a6f0d4c96107c2759bc633, type: 3}
-  nextStep: {fileID: 11400000, guid: e96ed9325f15ee64b963f754b7914820, type: 2}
-  isContinue: 1
+  nextSubtitle: {fileID: 11400000, guid: e96ed9325f15ee64b963f754b7914820, type: 2}
+  isAutoContinue: 1
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
   isCutscene: 1

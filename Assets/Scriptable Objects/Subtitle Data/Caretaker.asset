@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Caretaker
   m_EditorClassIdentifier: 
-  text: " \"Oh, how I\u2019ve missed you. Now it\u2019s your turn to join them. Stay
-    there, child. Let me bring you to your friends.\""
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: ee6e9a90b9df42446800da16cda7a77f, type: 3}
-  nextStep: {fileID: 11400000, guid: 087773168bde56f4397689bcc00e756a, type: 2}
-  isContinue: 1
-  playerRotation: {x: 0, y: 90, z: 0}
+  nextSubtitle: {fileID: 11400000, guid: 087773168bde56f4397689bcc00e756a, type: 2}
+  isAutoContinue: 1
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 125, z: 0}
   isCutscene: 1

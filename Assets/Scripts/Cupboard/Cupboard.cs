@@ -35,10 +35,10 @@ public class Cupboard : InteractBase, Interacter
     }
     private void Update()
     {
-        if (!_Heighlight)
+/*        if (!_Heighlight)
             return;
         if (_Player.playerController.interactBase == null)
-            _Heighlight.enabled = false;
+            _Heighlight.enabled = false;*/
     }
     public void HideInCupboard()
     {
@@ -55,7 +55,7 @@ public class Cupboard : InteractBase, Interacter
                 LeanTween.rotateLocal(_Player.gameObject, playerRotationDiretion, time / 2);
                 // Play only if caretaker encounter is 1st time and you have choosen to hide
                 LeanTween.delayedCall(.1f, () => unityEvent?.Invoke());
-                _Player.isHided = true;
+                _Player.isHideden = true;
                 _Player.torch.SetActive(false);
                 foreach (Collider c in col)
                 {
@@ -75,7 +75,7 @@ public class Cupboard : InteractBase, Interacter
             LeanTween.move(_Player.gameObject, exitPosition.position, time).setOnComplete(() =>
             {
                 _Player.torch.SetActive(true);
-                _Player.isHided = false;
+                _Player.isHideden = false;
                 foreach (Collider c in col)
                 {
                     c.enabled = true;

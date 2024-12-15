@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HorroHouse
 {
@@ -32,6 +33,8 @@ namespace HorroHouse
         public bool isPlayerInteracting = false;
         public bool isCutScenePlaying = false;
 
+        //Event Related
+        public UnityEvent[] onSubtitleStarts; 
         public void CollectElement(int type)
         {
             element++;
@@ -39,7 +42,7 @@ namespace HorroHouse
 
         private void Start()
         {
-            //EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
+            EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
         }
         private void Update()
         {

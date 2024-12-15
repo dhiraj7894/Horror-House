@@ -26,11 +26,11 @@ public class ObjectPlacer : InteractBase, Interacter
     }
     private void Update()
     {
-        if (!_Heighlight)
+/*        if (!_Heighlight)
             return;
         if (_player.playerController.interactBase == null)
             _Heighlight.enabled = false;
-
+*/
         if (Input.GetKeyDown(KeyCode.U))
         {
             FrameChecker();

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Clicked on Tarrace Door
   m_EditorClassIdentifier: 
-  text: "I... I don\u2019t have the terrace key...!"
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: 1f80182ee579f7b4191996828ce8cca9, type: 3}
-  nextStep: {fileID: 0}
-  isContinue: 0
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
+  isCutscene: 0

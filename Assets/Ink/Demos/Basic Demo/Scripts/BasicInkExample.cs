@@ -22,7 +22,7 @@ public class BasicInkExample : MonoBehaviour {
 	
 	// This is the main function called every time the story changes. It does a few things:
 	// Destroys all the old content and choices.
-	// Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
+	// Continues over all the lines of subtitleText, then displays all the choices. If there are no choices, the story is finished!
 	void RefreshView () {
 		// Remove all the UI on screen
 		RemoveChildren ();
@@ -31,9 +31,9 @@ public class BasicInkExample : MonoBehaviour {
 		while (story.canContinue) {
 			// Continue gets the next line of the story
 			string text = story.Continue ();
-			// This removes any white space from the text.
+			// This removes any white space from the subtitleText.
 			text = text.Trim();
-			// Display the text on screen!
+			// Display the subtitleText on screen!
 			CreateContentView(text);
 		}
 
@@ -63,24 +63,24 @@ public class BasicInkExample : MonoBehaviour {
 		RefreshView();
 	}
 
-	// Creates a textbox showing the the line of text
+	// Creates a textbox showing the the line of subtitleText
 	void CreateContentView (string text) {
 		Text storyText = Instantiate (textPrefab) as Text;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
 	}
 
-	// Creates a button showing the choice text
+	// Creates a button showing the choice subtitleText
 	Button CreateChoiceView (string text) {
 		// Creates the button from a prefab
 		Button choice = Instantiate (buttonPrefab) as Button;
 		choice.transform.SetParent (canvas.transform, false);
 		
-		// Gets the text from the button prefab
+		// Gets the subtitleText from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text> ();
 		choiceText.text = text;
 
-		// Make the button expand to fit the text
+		// Make the button expand to fit the subtitleText
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
 

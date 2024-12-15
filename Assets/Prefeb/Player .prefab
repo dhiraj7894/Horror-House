@@ -134,8 +134,7 @@ MonoBehaviour:
   playerGFXTransform: {fileID: 1572484806776107745}
   rb: {fileID: 2761839785038543672}
   torch: {fileID: 8128246402984253495}
-  leftHand: {fileID: 4242859383875859695}
-  rightHand: {fileID: 7628019552622587220}
+  rigbuilder: {fileID: 5795041316168167757}
   isCooldown: 0
   isStaminaCoolDown: 0
   isUsableStaminaRestored: 0
@@ -783,7 +782,6 @@ GameObject:
   - component: {fileID: 1275255607933170797}
   - component: {fileID: 5044479057710978358}
   - component: {fileID: 7062933565259811225}
-  - component: {fileID: 6846143858726286946}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged
@@ -856,29 +854,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6846143858726286946
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5589529599163582966}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5667538094583644189
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,20 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.XR;
 
+public enum CanCTInteract
+{
+    no,
+    yes
+
+}
 public class InteractBase : MonoBehaviour
 {
-    public Outline _Heighlight;   
+    //public Outline _Heighlight;   
     public Animator _Animator;
     public DoorName _DoorName;
+    public CanCTInteract _CanCTInteract;
     public bool isLocked = false;
     public string _UIText;
     public string _LockedText;

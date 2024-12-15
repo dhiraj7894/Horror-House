@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Basement Descent
   m_EditorClassIdentifier: 
-  text: "\"What is this chill in the air? Something dark is going on down here...
-    Oh God, please protect me... I don\u2019t know why this is happening to me.\""
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: fe81228005f2edd49b51991b7224c52d, type: 3}
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
+  isCutscene: 0

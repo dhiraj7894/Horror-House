@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Got the Fuse 2
   m_EditorClassIdentifier: 
-  text: '"The second fuse! I can restore full power and check the upper floors."'
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: a24fa0eb4fb32f54d843ff47b5b1951c, type: 3}
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
+  isCutscene: 0

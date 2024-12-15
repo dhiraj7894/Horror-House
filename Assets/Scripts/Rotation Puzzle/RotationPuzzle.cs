@@ -29,7 +29,7 @@ public class RotationPuzzle : InteractBase, Interacter
     {
         player = GameManager.Instance._PlayerObject;
         RandomizeTheNumber();
-        _basementKey.SetActive(false);
+        //_basementKey.SetActive(false);
     }
 
     public void Interact()
@@ -205,7 +205,7 @@ public class RotationPuzzle : InteractBase, Interacter
     void DisableCollider()
     {
         isOpend = true;
-        _basementKey.SetActive(true);
+        //_basementKey.SetActive(true);
         foreach (Collider col in cols)
         {
             col.enabled = false;

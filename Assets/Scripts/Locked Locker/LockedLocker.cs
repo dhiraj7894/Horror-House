@@ -23,10 +23,10 @@ public class LockedLocker : InteractBase, Interacter
 
     private void Update()
     {
-        if (!_Heighlight)
+/*        if (!_Heighlight)
             return;
         if (_player.playerController.interactBase == null)
-            _Heighlight.enabled = false;
+            _Heighlight.enabled = false;*/
     }
 
     public void Interact()

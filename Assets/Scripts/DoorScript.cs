@@ -71,15 +71,16 @@ public class DoorScript : InteractBase, Interacter
     private void Update()
     {
         currentEA = transform.localEulerAngles.y;
-        if (!_Heighlight)
+/*        if (!_Heighlight)
             return;
         if (_player.playerController.interactBase == null)
-            _Heighlight.enabled = false;
+            _Heighlight.enabled = false;*/
     }
 
     public void UnlockThisDoor()
     {
         isLocked = false;
+        _CanCTInteract = CanCTInteract.yes;
     }
 
 
@@ -88,7 +89,7 @@ public class DoorScript : InteractBase, Interacter
        /* if (other.CompareTag(AnimHash.Player))
         {
             isPlayerNear = true;
-            UIManager.Instance._interactionUI._UIText.text = _UIText;
+            UIManager.Instance._interactionUI._UIText.subtitleText = _UIText;
             LeanTween.value(0, 1, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
         }*/
     }
@@ -98,7 +99,7 @@ public class DoorScript : InteractBase, Interacter
         /*if (other.CompareTag(AnimHash.Player))
         {
             isPlayerNear = false;
-            UIManager.Instance._interactionUI._UIText.text = "";
+            UIManager.Instance._interactionUI._UIText.subtitleText = "";
             LeanTween.value(1, 0, time).setOnUpdate((float val) => { UIManager.Instance._interactionUI._canvasGroup.alpha = val; });
         }*/
     }

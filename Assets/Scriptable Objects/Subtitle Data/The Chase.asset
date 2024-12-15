@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: The Chase
   m_EditorClassIdentifier: 
-  text: '"I need to run! There cupboards! I can hide inside!"'
+  subtitleText: '"This is dummy data for chase"'
   audioClip: {fileID: 8300000, guid: 20b7918b5a020df4dbb587d05f90f5a0, type: 3}
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 1
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
+  isCutscene: 0

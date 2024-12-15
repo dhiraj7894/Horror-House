@@ -12,7 +12,7 @@ namespace HorroHouse.Player
         public UnityEvent onCollisionWithCaretaker;
 
 
-        private void OnTriggerEnter(Collider other)
+       /* private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(AnimHash.FlyingGhost))
             {
@@ -34,7 +34,7 @@ namespace HorroHouse.Player
             {
                 onCollisionWithCaretaker?.Invoke();
             }
-        }
+        }*/
 
     }
 }

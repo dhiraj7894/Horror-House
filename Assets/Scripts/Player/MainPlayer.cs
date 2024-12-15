@@ -55,7 +55,7 @@ namespace HorroHouse.Player
         public bool isInCutScene; // Indicates if the player is in a cutscene
         public bool isDead; // Indicates if the player is dead
         public bool isInLift; // Indicates if the player is inside a lift
-        public bool isHided; // Indicates if the player is hidden
+        public bool isHideden; // Indicates if the player is hidden
         #endregion
 
 
@@ -72,7 +72,7 @@ namespace HorroHouse.Player
         }
         private void Update()
         {
-            if (GameManager.Instance.isCutScenePlaying || isHided)
+            if (GameManager.Instance.isCutScenePlaying || isHideden || isDead)
             {
                 anim.SetFloat(AnimHash.SPEED, 0);
                 return;

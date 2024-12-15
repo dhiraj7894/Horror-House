@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Searching for Friends Door 2
   m_EditorClassIdentifier: 
-  text: '"Nicer, Miles you there?"'
+  subtitleText: '"This is dummy data"'
   audioClip: {fileID: 8300000, guid: 2e3011942c996c14fa7fe2339e7618f0, type: 3}
-  nextStep: {fileID: 11400000, guid: fa782535de237f948af3ffcb2230b414, type: 2}
-  isContinue: 1
+  nextSubtitle: {fileID: 0}
+  isAutoContinue: 0
+  triggerEvent: 0
+  eventStartNumber: 0
+  playerRotation: {x: 0, y: 0, z: 0}
   isCutscene: 0

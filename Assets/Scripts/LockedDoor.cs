@@ -3,6 +3,7 @@ using HorroHouse.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.Progress;
 
 public enum DoorName
@@ -33,6 +34,9 @@ public class LockedDoor : InteractBase, Interacter
     }
     public void Interact()
     {
+        if (isLocked) CheckTheDoorStatus();
+        if (!isLocked)
+            return;
         
         if (_player.GetComponent<ControllerPlayer>()._targetPlace.childCount > 0)
         {
@@ -46,18 +50,19 @@ public class LockedDoor : InteractBase, Interacter
                 {
                     coll.enabled = false;
                 }
+                unityEvent?.Invoke();
                 LeanTween.delayedCall(1, () => { OpenTheDoor(); });
                 return;
             }            
         }
-        if (!isLocked) CheckTheDoorStatus();
+       
     }
     private void Update()
     {
-        if (!_Heighlight)
+/*        if (!_Heighlight)
             return;
         if (_player.playerController.interactBase == null)
-            _Heighlight.enabled = false;
+            _Heighlight.enabled = false;*/
     }
     public void Drop()
     {

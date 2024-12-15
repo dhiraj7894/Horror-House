@@ -48,7 +48,7 @@ namespace FastMesh_Example
             }
     
             // GUILayout.BeginArea(new Rect(x, y, width, height));
-            // GUILayout.Label(text, style);
+            // GUILayout.Label(subtitleText, style);
             // GUILayout.EndArea();
             Handles.EndGUI();
         }

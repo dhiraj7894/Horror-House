@@ -9,6 +9,7 @@ public class CaretakerWayPointBank : Singleton<CaretakerWayPointBank>
     [SerializeField] private List<Transform> GroundWaypoint = new List<Transform>();
     [SerializeField] private List<Transform> FlooroneWaypoint = new List<Transform>();
     [SerializeField] private List<Transform> TarreceWaypoint = new List<Transform>();
+    [SerializeField] private List<Transform> CustomPositions = new List<Transform>();
 
     public List<Transform> Waypoints = new List<Transform>();
 
@@ -18,10 +19,14 @@ public class CaretakerWayPointBank : Singleton<CaretakerWayPointBank>
     }
     public void CombineWaypoints()
     {
-        Waypoints.AddRange(BasementWaypoint);
         Waypoints.AddRange(GroundWaypoint);
         Waypoints.AddRange(FlooroneWaypoint);
-        //Waypoints.AddRange(TarreceWaypoint);
+    }
+
+    public void AddWaypoints(int count)
+    {
+        if (count == 0) Waypoints.AddRange(BasementWaypoint);
+        if (count == 1) Waypoints.AddRange(TarreceWaypoint);
     }
     int lastIndex;
     public Transform GetWaypoint()
@@ -37,6 +42,12 @@ public class CaretakerWayPointBank : Singleton<CaretakerWayPointBank>
         {
             currentTransform = Waypoints[index];
         }
+        Debug.Log($"<color=red> Waitpoint Loaded </color>");
         return currentTransform;
+    }
+
+    public Transform GetCustomWaypoint(int id)
+    {
+        return CustomPositions[id];
     }
 }

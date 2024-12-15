@@ -25,7 +25,7 @@ public class DialogueManager : Singleton<DialogueManager>
     public VoiceLineSO voiceLineSO; // Scriptable object holding voice line audio clips
     public AudioSource audioSource; // Audio source for playing voice lines
 
-    public float typingSpeed = 0.04f; // Speed of text typing effect
+    public float typingSpeed = 0.04f; // Speed of subtitleText typing effect
     public bool canContinueToNextLine = false; // Flag to check if the player can proceed to the next line
     public Story currentStory; // Current Ink story being processed
     public bool isDialoguePlaying { get; private set; } // Is dialogue currently active
@@ -77,7 +77,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private IEnumerator DisplayLine(string line)
     {
-        dialogueText.text = ""; // Clear existing text
+        dialogueText.text = ""; // Clear existing subtitleText
         canContinueToNextLine = false; // Disable continue button
         continueImage.SetActive(false);
 
@@ -90,7 +90,7 @@ public class DialogueManager : Singleton<DialogueManager>
                 break;
             }
 
-            dialogueText.text += letter; // Add character to dialogue text
+            dialogueText.text += letter; // Add character to dialogue subtitleText
             i++;
             yield return new WaitForSeconds(typingSpeed); // Wait for typing speed interval
         }
@@ -135,7 +135,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private IEnumerator FullScreenDisplayLine(string line)
     {
-        fullScreenDialogueText.text = ""; // Clear existing text
+        fullScreenDialogueText.text = ""; // Clear existing subtitleText
         canContinueToNextLine = false; // Disable continue button
         fullScreenContinueImage.SetActive(false);
 
@@ -148,7 +148,7 @@ public class DialogueManager : Singleton<DialogueManager>
                 break;
             }
 
-            fullScreenDialogueText.text += letter; // Add character to full-screen dialogue text
+            fullScreenDialogueText.text += letter; // Add character to full-screen dialogue subtitleText
             i++;
             yield return new WaitForSeconds(typingSpeed); // Wait for typing speed interval
         }
@@ -205,8 +205,8 @@ public class DialogueManager : Singleton<DialogueManager>
         audioSource.Stop(); // Stop any playing audio
         audioSource = null; // Reset audio source
         isDialoguePlaying = false; // Disable dialogue mode
-        dialogueText.text = ""; // Clear standard dialogue text
-        fullScreenDialogueText.text = ""; // Clear full-screen dialogue text
+        dialogueText.text = ""; // Clear standard dialogue subtitleText
+        fullScreenDialogueText.text = ""; // Clear full-screen dialogue subtitleText
         SetActiveUIObjects(); // Reset standard UI elements
         SetActiveFullScreenUIObjects(); // Reset full-screen UI elements
         
