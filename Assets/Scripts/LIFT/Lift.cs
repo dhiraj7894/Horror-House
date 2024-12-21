@@ -21,7 +21,14 @@ public class Lift : MonoBehaviour
 
     public void SetHeight(int floor)
     {
-        if (!isMoving)
+        if (_floor[floor] == transform.localPosition.y)
+        {
+            Debug.Log("Same floor");
+            LeanTween.scaleZ(_rightDoor, .5f, time).setEaseInOutExpo();
+            LeanTween.scaleZ(_leftDoor, .5f, time).setEaseInOutExpo();
+        }
+
+        if (!isMoving && _floor[floor] != transform.localPosition.y)
         {
             LeanTween.scaleZ(_rightDoor, _rightDoorScaleOpen, time).setEaseInOutExpo();
             LeanTween.scaleZ(_leftDoor, _leftDoorScaleOpen, time).setEaseInOutExpo().setOnComplete(() => {                 
