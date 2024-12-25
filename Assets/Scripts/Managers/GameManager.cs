@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -42,7 +41,7 @@ namespace HorroHouse
 
         private void Start()
         {
-            EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
+            //EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
         }
         private void Update()
         {
@@ -74,9 +73,9 @@ namespace HorroHouse
 
         public void MouseCursorUpdate()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftAlt))
                 Cursor.lockState = CursorLockMode.Locked;
-            if (Input.GetKeyDown(KeyCode.LeftAlt))
+            if (Input.GetKey(KeyCode.LeftAlt))
                 Cursor.lockState = CursorLockMode.None;
         }
 

@@ -99,6 +99,7 @@ namespace HorroHouse.Player
             LeanTween.delayedCall(.5f, () => EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke());
             rigbuilder.layers[0].active = true;
             torch.SetActive(true);
+            Debug.Log($"Character stand completed : {torch.activeSelf}");
         }
 
         public void TwoBoneIKWeight()

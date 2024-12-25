@@ -16,7 +16,6 @@ Material:
   - _ALPHATEST_ON
   - _DETAIL_MULX2
   - _NORMALMAP
-  - _OCCLUSIONMAP
   - _PARALLAXMAP
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
