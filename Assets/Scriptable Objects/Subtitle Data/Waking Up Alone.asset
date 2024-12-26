@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9160e50118140b34ba96a62e52308b94, type: 3}
   m_Name: Waking Up Alone
   m_EditorClassIdentifier: 
-  subtitleText: '"This is dummy data"'
+  subtitleText: '""'
   audioClip: {fileID: 8300000, guid: e326611578a6f0d4c96107c2759bc633, type: 3}
   nextSubtitle: {fileID: 11400000, guid: e96ed9325f15ee64b963f754b7914820, type: 2}
   isAutoContinue: 1
