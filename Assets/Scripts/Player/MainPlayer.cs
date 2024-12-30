@@ -32,6 +32,10 @@ namespace HorroHouse.Player
         [Header("Head Rotation Limits")]
         public float maxHeadRotation = 50; // Maximum head rotation angle upwards
         public float minHeadRotation = -50; // Maximum head rotation angle downwards
+
+        [Header("Hand Rotation Limits")]
+        public float maxHandRotation = 50; // Maximum head rotation angle upwards
+        public float minHandRotation = -50; // Maximum head rotation angle downwards
         #endregion
 
         #region References
@@ -40,6 +44,7 @@ namespace HorroHouse.Player
         public ControllerPlayer playerController; // Custom controller script for handling player input
         public Animator anim; // Animator for controlling player animations
         public Transform cameraTransform; // Transform of the player camera
+        public Transform handTransform; // Transform of the player camera
         public GameObject playerCamera; // Main camera object
         public Transform playerGFXTransform; // Transform for the player graphical representation
         public Rigidbody rb; // Rigidbody for physics interactions

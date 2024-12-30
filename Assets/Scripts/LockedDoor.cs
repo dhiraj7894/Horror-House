@@ -32,9 +32,13 @@ public class LockedDoor : InteractBase, Interacter
     }
     public void Interact()
     {
-        if (isLocked) CheckTheDoorStatus();
-        if (!isLocked)
+        if (isLocked && _player.GetComponent<ControllerPlayer>()._targetPlace.childCount <= 0)
+        {
+            ClosedDoorAudio();
+            CheckTheDoorStatus();
             return;
+        }
+            
         
         if (_player.GetComponent<ControllerPlayer>()._targetPlace.childCount > 0)
         {
@@ -49,10 +53,11 @@ public class LockedDoor : InteractBase, Interacter
                     coll.enabled = false;
                 }
                 unityEvent?.Invoke();
-                LeanTween.delayedCall(1, () => { OpenTheDoor(); });
+                LeanTween.delayedCall(1, () => OpenThisDoor());
                 return;
             }            
         }
+        Debug.Log("Check Door");
        
     }
     private void Update()
@@ -67,9 +72,9 @@ public class LockedDoor : InteractBase, Interacter
 
     }
 
-    public void OpenTheDoor()
+    public void OpenThisDoor()
     {
-        Debug.Log("Temple Lock Unlocked");
+        OpenTheDoorAudio();
         LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc().setOnComplete(() => {
             gameObject.layer = 0;
             isLocked = false;   

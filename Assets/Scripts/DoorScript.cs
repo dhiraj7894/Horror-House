@@ -40,7 +40,10 @@ public class DoorScript : InteractBase, Interacter
     public void Interact()
     {
         if (isLocked)
+        {
+            ClosedDoorAudio();
             return;
+        }
 
         try
         {
@@ -56,11 +59,13 @@ public class DoorScript : InteractBase, Interacter
 
         if (_UIText.Contains("Close Door"))
         {
+            CloseTheDoorAudio();
             LeanTween.rotateY(gameObject, doorOpeningAngle, doorOpeningTime).setEaseInCirc();
             unityEvent?.Invoke();
         }
         else if(_UIText.Contains("Open Door"))
         {
+            OpenTheDoorAudio();
             LeanTween.rotateY(gameObject, initialDoorAngle, doorOpeningTime).setEaseInCirc();
             
         }

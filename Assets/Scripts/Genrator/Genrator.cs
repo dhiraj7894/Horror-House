@@ -1,9 +1,6 @@
 using HorroHouse;
 using HorroHouse.Player;
-using NUnit.Framework.Constraints;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Genrator : InteractBase, Interacter
@@ -19,6 +16,11 @@ public class Genrator : InteractBase, Interacter
     public Collider[] col;
     public int placementCount = 0;
     [SerializeField]private List<Transform> FuseCounts = new List<Transform>();
+
+    [Header("")]
+    public AudioSource thisSource;
+    public AudioClip[] audioClip;
+    public bool isGenratorStarted = false;
     private void Start()
     {
         _player = GameManager.Instance._PlayerObject;
@@ -76,8 +78,29 @@ public class Genrator : InteractBase, Interacter
         }
         if (FuseCounts.Count == 2)
         {
+            PlayPlayerAudio(thisSource, audioClip[0]);
+            LeanTween.delayedCall(thisSource.clip.length, () => { 
+                PlayAmbientAudio(thisSource);
+                isGenratorStarted = true;
+            });
             EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
             // Audio play for genrator start and loop complete start
         }
+    }
+
+    private void Update()
+    {
+        if(isGenratorStarted)PlayAmbientAudio(thisSource);
+    }
+    public void PlayAmbientAudio(AudioSource source)
+    {
+        if (source.isPlaying)
+            return;
+        source.PlayOneShot(audioClip[1]);
+    }
+    public void PlayPlayerAudio(AudioSource source, AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
     }
 }

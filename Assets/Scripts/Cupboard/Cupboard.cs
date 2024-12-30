@@ -41,6 +41,7 @@ public class Cupboard : InteractBase, Interacter
     }
     public void HideInCupboard()
     {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.cupboard[0]);
         UITextUpdate();
         anim.Play("Open");
         if (_Player.transform.parent != hidePosition)

@@ -51,18 +51,22 @@ namespace HorroHouse.Player
             }
         }
 
-        float xRotation = 0;
+        float xRotationCam = 0;
+        float xRotationHand = 0;
         public void MouseLook()
         {
             Vector2 mouse = InputActions._mouseAction.ReadValue<Vector2>();
             float mouseX = mouse.x * player.mouseSensitivity * Time.deltaTime;
             float mouseY = mouse.y * player.mouseSensitivity * Time.deltaTime;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, player.minHeadRotation, player.maxHeadRotation);
+            xRotationCam -= mouseY;
+            xRotationHand -= mouseY;
+            xRotationCam = Mathf.Clamp(xRotationCam, player.minHeadRotation, player.maxHeadRotation);
+            xRotationHand = Mathf.Clamp(xRotationHand, player.minHandRotation, player.maxHandRotation);
 
 
-            player.cameraTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            player.cameraTransform.localRotation = Quaternion.Euler(xRotationCam, 0, 0);
+            player.handTransform.localRotation = Quaternion.Euler(186.496f, -84.58801f, xRotationHand);
             player.transform.Rotate(Vector3.up * mouseX);
         }
         public void addGeavity()

@@ -23,10 +23,12 @@ public class KitchenIslandDrawer : InteractBase, Interacter
         UITextUpdate();
         if (transform.localPosition.x == closePosition)
         {
+            OpenTheDrawerAudio();
             LeanTween.moveLocalX(transform.gameObject, openPosition, time);
         }
         else
         {
+            CloseTheDrawerAudio();
             LeanTween.moveLocalX(transform.gameObject, closePosition, time);
         }
     }

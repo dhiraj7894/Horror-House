@@ -1,5 +1,7 @@
+using HorroHouse;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.XR;
 
@@ -30,7 +32,7 @@ public class InteractBase : MonoBehaviour
     }
     public void CheckTheDoorStatus()
     {
-        Debug.Log("Interacted");
+        Debug.Log("Interacted");        
         switch (_DoorName)
         {
             case DoorName.None: break;
@@ -40,5 +42,47 @@ public class InteractBase : MonoBehaviour
             case DoorName.TarraceDoor: EventManager.Instance.eventForTask.ClickedTarraceDoor?.Invoke(); break;
             case DoorName.BedroomDoor: EventManager.Instance.eventForTask.ClickedBedroomDoor?.Invoke(); break;
         }
+    }
+
+    public void ClosedDoorAudio()
+    {        
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+            AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorWontBudge
+            )); 
+    }
+
+    public void OpenTheDoorAudio()
+    {        
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+            AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorOpen
+            ));
+    }
+
+    public void CloseTheDoorAudio()
+    {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+            AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorClose
+            ));
+    }
+
+    public void OpenTheShelfAudio()
+    {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+            AudioManager.Instance.audioBank.shelf[0]);
+    }
+
+    public void CloseTheShelfAudio()
+    {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.shelf[1]);
+    }
+    public void OpenTheDrawerAudio()
+    {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+            AudioManager.Instance.audioBank.drawer[0]);
+    }
+
+    public void CloseTheDrawerAudio()
+    {
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.drawer[1]);
     }
 }

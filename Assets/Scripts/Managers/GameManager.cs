@@ -41,7 +41,7 @@ namespace HorroHouse
 
         private void Start()
         {
-            //EventManager.Instance.eventForTaskComplete.Fuse2Connected?.Invoke();
+            EventManager.Instance.eventForTask.CutSceneCompleted?.Invoke();
         }
         private void Update()
         {
@@ -84,8 +84,12 @@ namespace HorroHouse
             if (currentTask > taskNumber)
                 return;
 
+
             currentTask = taskNumber;
             //Audio to be played
+            AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+            AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.taskSelected
+            ));
             UIManager.Instance._taskAnimator.Play("TaskUpdated");
             UIManager.Instance._task.text = $"{Tasks[taskNumber]}";
         }

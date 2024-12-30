@@ -27,10 +27,12 @@ public class ShelfDoor : InteractBase, Interacter
         UITextUpdate();
         if (_UIText.Contains("Close"))
         {
+            OpenTheShelfAudio();
             LeanTween.rotateLocal(gameObject, closeRotation, time).setEaseInCirc();
         }
         else if (_UIText.Contains("Open"))
         {
+            CloseTheShelfAudio();
             LeanTween.rotateLocal(gameObject, openRotation, time).setEaseInCirc();
         }
     }

@@ -174,5 +174,6 @@ namespace HorroHouse.Player
                 mainPlayer.isInLift = false;
             }
         }
+
     }
 }

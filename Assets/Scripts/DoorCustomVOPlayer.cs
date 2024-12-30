@@ -9,8 +9,12 @@ public class DoorCustomVOPlayer : MonoBehaviour
 
     public void PlaySound()
     {
-        if(!isSoundPlayed) SubtitleManager.Instance.GetSubtitleTextsData(subtitleTexts);
-        isSoundPlayed = true;
+        if (!isSoundPlayed)
+        {
+            SubtitleManager.Instance.GetSubtitleTextsData(subtitleTexts);
+            
+        }
+            isSoundPlayed = true;
     }
 
 
