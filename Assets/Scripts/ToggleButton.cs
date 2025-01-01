@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class ToggleButton : MonoBehaviour
 {
@@ -10,15 +11,16 @@ public class ToggleButton : MonoBehaviour
     
     [SerializeField] UnityEvent toggleOn;
     [SerializeField] UnityEvent toggleOff;
-    
-    
-    Toggle toggle;
+
+
+    UnityEngine.UI.Toggle toggle;
     Vector2 handlePosition;
 
 
     private void Awake()
     {
-        toggle = GetComponent<Toggle>();
+        toggle = GetComponent<UnityEngine.UI.Toggle>();
+        toggle.isOn = true;
         handlePosition = uiHandleRectTransform.anchoredPosition;
         toggle.onValueChanged.AddListener(OnSwitch);
         if (toggle.isOn)

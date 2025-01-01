@@ -8,6 +8,16 @@ public class TestingManager : MonoBehaviour
     public List<Transform> gameObjects;
     public Transform player;
 
+
+
+
+
+    private void Start()
+    {
+        //LightChange();
+    }
+
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -19,5 +29,18 @@ public class TestingManager : MonoBehaviour
                 obj.position = player.position + new Vector3(0,1,0);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            //LightmapChange();
+        }
     }
+
+
+  
+
+
+
+
+    
 }

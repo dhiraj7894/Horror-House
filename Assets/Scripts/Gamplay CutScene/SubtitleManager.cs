@@ -17,6 +17,12 @@ public class SubtitleManager : Singleton<SubtitleManager>
 
     public bool isAudioPlaying = false;
     public UnityEvent executeOnSubtitleStarts;
+
+    private void Start()
+    {
+        audioSource = GameObject.Find("Dialouge").GetComponent<AudioSource>();
+    }
+
     public void GetSubtitleTextsData(SubtitleTexts data)
     {
         PlayAudioForCutScene(data);        
@@ -41,9 +47,14 @@ public class SubtitleManager : Singleton<SubtitleManager>
         audioSource.Play();
         if (data.isAutoContinue)
         {
-            LeanTween.delayedCall((audioSource.clip.length + .1f), () => { PlayAudioForCutScene(data.nextSubtitle); });
+            LeanTween.delayedCall((audioSource.clip.length + .1f), () => { 
+                PlayAudioForCutScene(data.nextSubtitle); 
+            });
             return;
         }
+        LeanTween.delayedCall((audioSource.clip.length + .1f), () => {
+            StopPlaying();
+        });
         isAudioPlaying = true;
     }
 
@@ -58,11 +69,10 @@ public class SubtitleManager : Singleton<SubtitleManager>
     }
 
     private void Update()
-    {
-        
-        if (isAudioPlaying && audioSource.time >= audioSource.clip.length)
-        {            
+    {        
+       /* if (isAudioPlaying && audioSource.time >= audioSource.clip.length)
+        {           
             StopPlaying();
-        }
+        }*/
     }
 }

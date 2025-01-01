@@ -8,7 +8,7 @@ public class Genrator : InteractBase, Interacter
     [Space(10)]
     private MainPlayer _player;
     [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
-    public Color colour;
+    public Color color;
     public Item[] _requirements;
     public Transform[] _requirementPositions;
     public MeshRenderer[] _indicatorLight;
@@ -39,7 +39,7 @@ public class Genrator : InteractBase, Interacter
                     obj.localPosition = Vector3.zero;
                     obj.localRotation = Quaternion.identity;
                     obj.localScale = new Vector3(40,40,40);
-                    _indicatorLight[item.id].material.SetColor("_EmissionColor", colour);
+                    _indicatorLight[item.id].material.SetColor("_EmissionColor", color);
                     FuseCounts.Add(obj);
                     placementCount++;
                     // Cutscene for Genrator Power Text

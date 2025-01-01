@@ -94,4 +94,9 @@ public class InteractableObject : InteractBase, Interacter
                 break;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.Instance.audioSource.sfxSource.PlayOneShot(AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.objectFall));
+    }
 }

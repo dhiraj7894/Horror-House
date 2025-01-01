@@ -46,43 +46,43 @@ public class InteractBase : MonoBehaviour
 
     public void ClosedDoorAudio()
     {        
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, 
             AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorWontBudge
             )); 
     }
 
     public void OpenTheDoorAudio()
     {        
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, 
             AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorOpen
             ));
     }
 
     public void CloseTheDoorAudio()
     {
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, 
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, 
             AudioManager.Instance.GetAudio(AudioManager.Instance.audioBank.doorClose
             ));
     }
 
     public void OpenTheShelfAudio()
     {
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource,
             AudioManager.Instance.audioBank.shelf[0]);
     }
 
     public void CloseTheShelfAudio()
     {
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.shelf[1]);
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, AudioManager.Instance.audioBank.shelf[1]);
     }
     public void OpenTheDrawerAudio()
     {
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource,
             AudioManager.Instance.audioBank.drawer[0]);
     }
 
     public void CloseTheDrawerAudio()
     {
-        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.drawer[1]);
+        AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, AudioManager.Instance.audioBank.drawer[1]);
     }
 }

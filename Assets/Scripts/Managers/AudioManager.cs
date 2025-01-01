@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class AudioBank
@@ -15,24 +16,32 @@ public class AudioBank
     public AudioClip[] taskSelected;
     public AudioClip[] shelf;
     public AudioClip[] drawer;
+    public AudioClip[] objectFall;
 }
 
 [System.Serializable]
 public class AudioSources
 {
-    [Range(0, 1)] public float baseAudioVol;
-    public AudioSource baseAudioSource;
+    [Range(0, 1)] public float sfxVolume;
+    public AudioSource sfxSource;
 
-    [Range(0, 1)] public float playerAudioVol;
-    public AudioSource playerAudioSource;
+    [Range(0, 1)] public float dialougeVolume;
+    public AudioSource dialougeSource;
 
-    [Range(0, 1)] public float ambAudioVol;
-    public AudioSource ambAudioSource;
+    [Range(0, 1)] public float musicVolume;
+    public AudioSource musicSource;
 }
 namespace HorroHouse
 {
     public class AudioManager : Singleton<AudioManager>
     {
+        public enum AudioType { 
+            sfx = 0,
+            dialouge = 1, 
+            music = 2
+        }
+
+
         public AudioSources audioSource;
         public AudioBank audioBank;
 
@@ -44,9 +53,13 @@ namespace HorroHouse
             return clipList[randomNumber];
         }
 
+        
+
         private void Start()
         {
             SetAudioLevels();
+            DontDestroyOnLoad(this);
+            AmbAudioPlaying(true);
         }
 
 
@@ -57,7 +70,7 @@ namespace HorroHouse
 
         private void Update()
         {
-            if(ambAudioPlaying) PlayAmbientAudio(audioSource.ambAudioSource);
+            if(ambAudioPlaying) PlayAmbientAudio(audioSource.musicSource);
         }
         public void PlayAmbientAudio(AudioSource source)
         {
@@ -72,9 +85,9 @@ namespace HorroHouse
 
         public void SetAudioLevels()
         {
-            audioSource.ambAudioSource.volume = audioSource.ambAudioVol;
-            audioSource.playerAudioSource.volume = audioSource.playerAudioVol;
-            audioSource.baseAudioSource.volume = audioSource.baseAudioVol;
+            audioSource.musicSource.volume = audioSource.musicVolume;
+            audioSource.dialougeSource.volume = audioSource.dialougeVolume;
+            audioSource.sfxSource.volume = audioSource.sfxVolume;
 
         }
 
@@ -82,6 +95,35 @@ namespace HorroHouse
         {
             source.clip = clip;
             source.Play();
+        }
+        AudioType val;
+
+        public void SetAudioType(int type)
+        {
+            val = (AudioType)type;
+        }
+        public void SetVolume(Slider slider)
+        {
+            switch (val) {
+                case AudioType.sfx:
+                    audioSource.sfxVolume = slider.value;
+                    return;
+                case AudioType.dialouge:
+                    audioSource.dialougeVolume = slider.value;
+                    return;
+                case AudioType.music:
+                    audioSource.musicVolume = slider.value;
+                    return;
+            
+            }
+
+        }
+
+        public void SaveVoulmeMeter()
+        {
+            audioSource.sfxSource.volume = audioSource.sfxVolume;
+            audioSource.dialougeSource.volume = audioSource.dialougeVolume;
+            audioSource.musicSource.volume = audioSource.musicVolume;
         }
     }
 }

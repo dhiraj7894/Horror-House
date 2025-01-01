@@ -24,7 +24,7 @@ public class Lift : MonoBehaviour
         if (_floor[floor] == transform.localPosition.y)
         {
             Debug.Log("Same floor");
-            AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+            AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource,
                 AudioManager.Instance.audioBank.lift[1]
                 );
 
@@ -34,17 +34,17 @@ public class Lift : MonoBehaviour
 
         if (!isMoving && _floor[floor] != transform.localPosition.y)
         {
-            AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource,
+            AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource,
                 AudioManager.Instance.audioBank.lift[0]
                 );
 
             LeanTween.scaleZ(_rightDoor, _rightDoorScaleOpen, time).setEaseInOutExpo();
             LeanTween.scaleZ(_leftDoor, _leftDoorScaleOpen, time).setEaseInOutExpo().setOnComplete(() => {
-                LeanTween.moveLocalY(gameObject, _floor[floor], AudioManager.Instance.audioSource.playerAudioSource.clip.length).setEaseInOutExpo().setOnComplete(() => {
-                    AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.playerAudioSource, AudioManager.Instance.audioBank.lift[1]);
+                LeanTween.moveLocalY(gameObject, _floor[floor], AudioManager.Instance.audioSource.sfxSource.clip.length).setEaseInOutExpo().setOnComplete(() => {
+                    AudioManager.Instance.PlayPlayerAudio(AudioManager.Instance.audioSource.sfxSource, AudioManager.Instance.audioBank.lift[1]);
                     LeanTween.scaleZ(_leftDoor, .5f, time).setEaseInOutExpo().setOnComplete(() =>
                     {
-                        AudioManager.Instance.audioSource.playerAudioSource.Stop();
+                        AudioManager.Instance.audioSource.sfxSource.Stop();
                         player.controller.enabled = true;
                         player.gameObject.layer = 8;
                         isMoving = false;

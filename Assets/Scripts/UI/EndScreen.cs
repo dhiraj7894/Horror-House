@@ -17,7 +17,7 @@ public class EndScreen : MonoBehaviour
 
     public void OnEndOfScreen()
     {
-        
+        LeanTween.value(canvasGroup.alpha, 1, .5f).setOnUpdate((float val) => { canvasGroup.alpha = val; });
     }
 
 
